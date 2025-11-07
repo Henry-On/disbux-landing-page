@@ -1,0 +1,138 @@
+:root {
+    --primary-color: #3C3F9D; 
+    --sec-color:#900d8cab;
+    --text-color:rgba(0,0,0,0.7);
+    --text-light: rgba(255,255,255,0.7);
+    --bg:#e5f4ff;
+    --accent-color:rgb(234, 234, 234);
+
+    --space-sm: .5rem;
+    --space-md: .7rem;
+    --space-lg: 1rem;
+}
+
+$breakpoint-xs: 480px;
+$breakpoint-sm: 768px;
+$breakpoint-md: 992px;
+$breakpoint-lg: 1200px;
+$breakpoint-xl: 1400px;
+
+$font-family: (
+    "body" : "body-font",
+    "heading" : "heading-font",
+    "display" : "display-font"
+);
+
+@mixin fa-pseudo {
+    font-family: "font awesome 5 free";
+    font-weight: bold;
+    display: inline-block;
+}
+
+@mixin flex-column {
+    display: flex;
+    flex-direction: column;
+}
+@mixin flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+@mixin absolute-overlay{
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.7);
+}
+
+@mixin placeholder-color($color) {
+    
+    &::placeholder {
+        color: $color;
+    }
+    &::-webkit-input-placeholder {
+        color: $color;
+    }
+    &:-moz-placeholder {
+        color: $color;
+        opacity: 1;
+    }
+    &::-moz-placeholder {
+        color: $color;
+        opacity: 1;
+    }
+    &:-ms-input-placeholder {
+        color: $color;
+        opacity: 1;
+    }
+
+}
+
+.bg-accent {
+    background-color: var(--accent-color);
+}
+.text-white {
+    color: white;
+}
+.text-light {
+    color: var(--text-light);
+}
+.text-accent {
+    color: var(--accent-color);
+}
+.font-heading {
+    font-family: map-get($font-family, "heading");
+    font-size: 1.25rem;
+}
+
+.color-primary {
+    color: var(--primary-color);
+}
+.color-secondary {
+    color: var(--sec-color);
+}
+.text-center {
+    text-align: center;
+}
+.myBtn {
+    display: inline-block;
+    border: 1px solid var(--primary-color);
+    padding: 12px 24px;
+    color:var(--primary-color);
+}
+.myBtn.myBtn-primary {
+    background-color: var(--primary-color);
+    color:black;
+    font-weight: bold;
+}
+.d-block {
+    display: block;
+}
+.d-inline-block {
+    display: inline-block;
+}
+.fw-lighter {
+    font-weight: lighter;
+}
+.fw-bold {
+    font-weight: bolder;
+}
+.space-1 {
+    margin-bottom: .75rem;
+}
+.space-2 {
+    margin-bottom: 1rem;
+}
+.space-3 {
+    margin-bottom: 1.75rem;
+}
+
+.fa-pseudo::after, .fa-pseudo::before {
+    font-family: "font awesome 5 free";
+    font-weight: bold;
+    display: inline-block;
+}
