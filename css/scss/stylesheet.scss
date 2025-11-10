@@ -755,7 +755,7 @@ footer {
 
         @media(min-width:$breakpoint-sm) {
             flex-direction: row;
-            gap: 1.5rem;
+            gap: 1rem;
         }
 
         @media(min-width:$breakpoint-md) {
@@ -767,8 +767,6 @@ footer {
         ul {
             @include flex-column;
             gap: .5rem;
-            color: var(--primary-color);
-            // font-weight: 600;
 
             @media(min-width:$breakpoint-sm) {
                 flex-direction: row;

@@ -1023,7 +1023,7 @@ footer .footer-links {
 @media (min-width: 768px) {
   footer .footer-links {
     flex-direction: row;
-    gap: 1.5rem;
+    gap: 1rem;
   }
 }
 @media (min-width: 992px) {
@@ -1035,7 +1035,6 @@ footer .footer-links ul {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  color: var(--primary-color);
 }
 @media (min-width: 768px) {
   footer .footer-links ul {
