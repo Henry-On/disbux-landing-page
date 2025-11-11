@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.hnrycdr.disbux",
+      "sha256_cert_fingerprints": [
+        "BF:BC:09:37:AC:0F:0E:23:C9:11:58:E0:F4:B0:D1:A7:00:C9:0F:FC:CA:D2:73:E8:43:CC:00:1E:8A:D3:DB:22"
+      ]
+    }
+  }
+]
