@@ -1,0 +1,16 @@
+RewriteEngine On 
+
+# Force HTTPS
+RewriteCond %{HTTPS} off 
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Skip rewriting if it's a real file or folder
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+
+# Serve .html or .php files without extension
+RewriteCond %{REQUEST_FILENAME}.html -f [OR]
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.*)$ $1.html [L]
+
+ErrorDocument 404 https://disbux.com
