@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Privacy Policy - Disbux</title>
+    <meta name="description" content="Learn how Disbux collects, uses, and protects your personal information in accordance with global privacy standards">
+    <meta name="robots" content="index, follow">
+    
+    <link rel="shortcut icon" href="./images/favicon.png">
+    <link rel="stylesheet" href="fontawesome/css/fontawesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #64748b;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --border-color: #e2e8f0;
+            --background-light: #f8fafc;
+            --background-white: #ffffff;
+            --accent-blue: #eff6ff;
+            --accent-green: #f0fdf4;
+            --accent-orange: #fffbeb;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--background-light);
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Navigation */
+        .nav {
+            background: var(--background-white);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            transition: all 0.2s ease;
+        }
+
+        .back-link:hover {
+            background-color: var(--accent-blue);
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .back-link i {
+            margin-right: 0.5rem;
+        }
+
+        .logo {
+            height: 32px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 4rem 0 3rem;
+            background: var(--background-white);
+            margin-bottom: 2rem;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            letter-spacing: -0.025em;
+        }
+
+        .subtitle {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            font-weight: 400;
+        }
+
+        .effective-date {
+            display: inline-flex;
+            align-items: center;
+            background: var(--accent-blue);
+            color: var(--primary-color);
+            padding: 0.75rem 1.5rem;
+            border-radius: 2rem;
+            font-weight: 500;
+            font-size: 0.875rem;
+        }
+
+        .effective-date i {
+            margin-right: 0.5rem;
+        }
+
+        /* Table of Contents */
+        .toc {
+            background: var(--background-white);
+            border: 1px solid var(--border-color);
+            border-radius: 0.75rem;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .toc h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .toc-list {
+            display: grid;
+            gap: 0.5rem;
+            list-style: none;
+        }
+
+        .toc-item a {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 1rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            border-radius: 0.5rem;
+            transition: all 0.2s ease;
+        }
+
+        .toc-item a:hover {
+            background-color: var(--background-light);
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .toc-number {
+            background: var(--primary-color);
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-right: 0.75rem;
+            flex-shrink: 0;
+        }
+
+        /* Content */
+        .content {
+            background: var(--background-white);
+            border-radius: 0.75rem;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 2rem;
+        }
+
+        .section {
+            padding: 2.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-number {
+            background: var(--primary-color);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.875rem;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 0;
+            line-height: 1.3;
+        }
+
+        .section p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .section ul {
+            margin: 1.5rem 0;
+            padding-left: 1.5rem;
+        }
+
+        .section li {
+            color: var(--text-secondary);
+            margin-bottom: 0.75rem;
+            line-height: 1.6;
+        }
+
+        .section li::marker {
+            color: var(--primary-color);
+        }
+
+        .subsection-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 2rem 0 1rem 0;
+        }
+
+        /* Info boxes */
+        .info-box {
+            background: var(--accent-blue);
+            border: 1px solid #bfdbfe;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .info-box .icon {
+            color: var(--primary-color);
+            margin-right: 0.5rem;
+        }
+
+        .warning-box {
+            background: var(--accent-orange);
+            border: 1px solid #fed7aa;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .warning-box .icon {
+            color: #ea580c;
+            margin-right: 0.5rem;
+        }
+
+        .success-box {
+            background: var(--accent-green);
+            border: 1px solid #bbf7d0;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .success-box .icon {
+            color: #16a34a;
+            margin-right: 0.5rem;
+        }
+
+        /* Contact section */
+        .contact-section {
+            background: var(--accent-green);
+            border: 1px solid #bbf7d0;
+            border-radius: 0.75rem;
+            padding: 2.5rem;
+            margin: 2rem 0;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            background: white;
+            border-radius: 0.5rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .contact-icon {
+            background: #16a34a;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+
+        .contact-details h4 {
+            font-weight: 600;
+            margin: 0 0 0.25rem 0;
+            color: var(--text-primary);
+            font-size: 0.875rem;
+        }
+
+        .contact-details p {
+            margin: 0;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 2rem 0;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            background: var(--background-white);
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* Scroll to top */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--primary-color);
+            color: white;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: var(--shadow-lg);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-to-top:hover {
+            background: #1d4ed8;
+            color: white;
+            text-decoration: none;
+            transform: translateY(-2px);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .section {
+                padding: 2rem 1.5rem;
+            }
+
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .section-number {
+                margin-bottom: 0.5rem;
+                margin-right: 0;
+            }
+
+            .toc {
+                padding: 1.5rem;
+            }
+        }
+
+        .bold {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="nav">
+        <div class="container">
+            <div class="nav-content">
+                <a href="index.html" class="back-link">
+                    <i class="fa fa-arrow-left"></i>
+                    Back to Home
+                </a>
+                <a href="index.html">
+                    <img src="images/logo.png" alt="Disbux Logo" class="logo" />
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="header">
+            <h1>Privacy Policy</h1>
+            <p class="subtitle">
+                We're committed to protecting your privacy and being transparent about how we collect, use, and share your information.
+            </p>
+            <div class="effective-date">
+                <i class="fa fa-calendar"></i>
+                Last updated: December 24, 2024
+            </div>
+        </div>
+
+        <div class="toc">
+            <h2>What's covered in this policy</h2>
+            <ul class="toc-list">
+                <li class="toc-item">
+                    <a href="#section-1">
+                        <span class="toc-number">1</span>
+                        Information We Collect
+                    </a>
+                </li>
+                <li class="toc-item">
+                    <a href="#section-2">
+                        <span class="toc-number">2</span>
+                        How We Use Information
+                    </a>
+                </li>
+                <li class="toc-item">
+                    <a href="#section-3">
+                        <span class="toc-number">3</span>
+                        Information Sharing
+                    </a>
+                </li>
+                <li class="toc-item">
+                    <a href="#section-4">
+                        <span class="toc-number">4</span>
+                        Your Rights & Controls
+                    </a>
+                </li>
+                <li class="toc-item">
+                    <a href="#section-5">
+                        <span class="toc-number">5</span>
+                        Data Security
+                    </a>
+                </li>
+                <li class="toc-item">
+                    <a href="#section-6">
+                        <span class="toc-number">6</span>
+                        Data Retention
+                    </a>
+                </li>
+                <li class="toc-item">
+                    <a href="#section-7">
+                        <span class="toc-number">7</span>
+                        International Transfers
+                    </a>
+                </li>
+                <li class="toc-item">
+                    <a href="#section-8">
+                        <span class="toc-number">8</span>
+                        Children's Privacy
+                    </a>
+                </li>
+                <li class="toc-item">
+                    <a href="#section-9">
+                        <span class="toc-number">9</span>
+                        Changes to Policy
+                    </a>
+                </li>
+                <li class="toc-item">
+                    <a href="#section-10">
+                        <span class="toc-number">10</span>
+                        Contact Us
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="info-box">
+            <p><i class="fa fa-info-circle icon"></i><span class="bold">About Disbux:</span> Disbux ("we," "our," or "us") is a financial technology platform that enables seamless money transfers through unique payment codes. We're committed to protecting your personal data in accordance with the Nigeria Data Protection Act (2023) and international privacy standards.</p>
+        </div>
+
+        <div class="content">
+            <section class="section" id="section-1">
+                <div class="section-header">
+                    <div class="section-number">1</div>
+                    <h2 class="section-title">Information We Collect</h2>
+                </div>
+                <p>To provide our services effectively and securely, we collect several types of information when you use Disbux:</p>
+                
+                <h3 class="subsection-title">Personal Information</h3>
+                <ul>
+                    <li><span class="bold">Identity Information:</span> Full name, phone number, email address, and date of birth for account verification</li>
+                    <li><span class="bold">Financial Information:</span> Bank account details, transaction history, and wallet balance information</li>
+                    <li><span class="bold">Contact Information:</span> Phone numbers and email addresses for communication and security purposes</li>
+                </ul>
+
+                <h3 class="subsection-title">Technical Information</h3>
+                <ul>
+                    <li><span class="bold">Device Data:</span> Device identifiers, operating system, app version, and IP address</li>
+                    <li><span class="bold">Usage Data:</span> How you interact with our app, features used, and performance metrics</li>
+                    <li><span class="bold">Location Data:</span> General location information for fraud prevention (with your consent)</li>
+                </ul>
+
+                <h3 class="subsection-title">Payment Code Data</h3>
+                <ul>
+                    <li>Unique payment codes you generate and their associated metadata</li>
+                    <li>Recipient information and transaction details</li>
+                    <li>Code redemption history and patterns</li>
+                </ul>
+
+                <div class="warning-box">
+                    <p><i class="fa fa-shield-alt icon"></i><span class="bold">What we don't collect:</span> We do not collect sensitive personal data such as political opinions, religious beliefs, health information, or other data unrelated to our financial services.</p>
+                </div>
+            </section>
+
+            <section class="section" id="section-2">
+                <div class="section-header">
+                    <div class="section-number">2</div>
+                    <h2 class="section-title">How We Use Information</h2>
+                </div>
+                <p>We use the information we collect to provide, maintain, and improve our services:</p>
+                
+                <h3 class="subsection-title">Service Provision</h3>
+                <ul>
+                    <li>Process payment code generation and redemption</li>
+                    <li>Facilitate money transfers and transactions</li>
+                    <li>Maintain your account and provide customer support</li>
+                    <li>Send transaction confirmations and account notifications</li>
+                </ul>
+
+                <h3 class="subsection-title">Security & Fraud Prevention</h3>
+                <ul>
+                    <li>Verify your identity and prevent unauthorized access</li>
+                    <li>Monitor for suspicious activities and fraud</li>
+                    <li>Comply with anti-money laundering (AML) regulations</li>
+                    <li>Protect against security threats and abuse</li>
+                </ul>
+
+                <h3 class="subsection-title">Service Improvement</h3>
+                <ul>
+                    <li>Analyze usage patterns to improve our platform</li>
+                    <li>Develop new features and services</li>
+                    <li>Conduct research and analytics</li>
+                    <li>Personalize your experience within the app</li>
+                </ul>
+            </section>
+
+            <section class="section" id="section-3">
+                <div class="section-header">
+                    <div class="section-number">3</div>
+                    <h2 class="section-title">Information Sharing</h2>
+                </div>
+                <p>We only share your information in specific circumstances and with appropriate safeguards:</p>
+                
+                <h3 class="subsection-title">Service Providers</h3>
+                <ul>
+                    <li>Payment processors (MoniePoint/Monnify) for transaction processing</li>
+                    <li>Cloud service providers for data storage and processing</li>
+                    <li>Analytics providers for service improvement</li>
+                    <li>Customer support platforms for assistance</li>
+                </ul>
+
+                <h3 class="subsection-title">Legal Requirements</h3>
+                <ul>
+                    <li>Regulatory authorities when required by law</li>
+                    <li>Law enforcement agencies for legitimate investigations</li>
+                    <li>Courts or legal proceedings when compelled</li>
+                    <li>Financial intelligence units for AML compliance</li>
+                </ul>
+
+                <div class="success-box">
+                    <p><i class="fa fa-lock icon"></i><span class="bold">Your control:</span> We never sell your personal information to third parties for marketing purposes. You can always request to see what information we've shared and with whom.</p>
+                </div>
+            </section>
+
+            <section class="section" id="section-4">
+                <div class="section-header">
+                    <div class="section-number">4</div>
+                    <h2 class="section-title">Your Rights & Controls</h2>
+                </div>
+                <p>You have several rights regarding your personal information:</p>
+                
+                <h3 class="subsection-title">Access & Portability</h3>
+                <ul>
+                    <li>Request a copy of all personal data we hold about you</li>
+                    <li>Export your transaction history and account data</li>
+                    <li>Receive your data in a machine-readable format</li>
+                </ul>
+
+                <h3 class="subsection-title">Correction & Updates</h3>
+                <ul>
+                    <li>Update your profile information directly in the app</li>
+                    <li>Request correction of inaccurate information</li>
+                    <li>Add missing information to your account</li>
+                </ul>
+
+                <h3 class="subsection-title">Deletion & Restriction</h3>
+                <ul>
+                    <li>Request deletion of your account and associated data</li>
+                    <li>Restrict processing of your information</li>
+                    <li>Object to certain types of data processing</li>
+                </ul>
+
+                <div class="info-box">
+                    <p><i class="fa fa-info-circle icon"></i><span class="bold">Note:</span> Some information may need to be retained for legal compliance, even after account deletion. We'll always inform you of any limitations when processing your requests.</p>
+                </div>
+            </section>
+
+            <section class="section" id="section-5">
+                <div class="section-header">
+                    <div class="section-number">5</div>
+                    <h2 class="section-title">Data Security</h2>
+                </div>
+                <p>We implement comprehensive security measures to protect your information:</p>
+                
+                <h3 class="subsection-title">Technical Safeguards</h3>
+                <ul>
+                    <li>End-to-end encryption for sensitive data transmission</li>
+                    <li>Advanced encryption standards (AES-256) for data storage</li>
+                    <li>Multi-factor authentication for account access</li>
+                    <li>Regular security audits and penetration testing</li>
+                </ul>
+
+                <h3 class="subsection-title">Operational Security</h3>
+                <ul>
+                    <li>Limited access to personal data on a need-to-know basis</li>
+                    <li>Regular employee security training and background checks</li>
+                    <li>Incident response procedures for security breaches</li>
+                    <li>Continuous monitoring for suspicious activities</li>
+                </ul>
+
+                <h3 class="subsection-title">Infrastructure Security</h3>
+                <ul>
+                    <li>Secure cloud infrastructure with industry-leading providers</li>
+                    <li>Regular backups and disaster recovery procedures</li>
+                    <li>Network security and firewall protection</li>
+                    <li>Physical security controls for data centers</li>
+                </ul>
+            </section>
+
+            <section class="section" id="section-6">
+                <div class="section-header">
+                    <div class="section-number">6</div>
+                    <h2 class="section-title">Data Retention</h2>
+                </div>
+                <p>We retain your information only as long as necessary for legitimate business purposes:</p>
+                
+                <h3 class="subsection-title">Active Accounts</h3>
+                <ul>
+                    <li>Account information: Retained while your account is active</li>
+                    <li>Transaction records: Kept for 7 years for regulatory compliance</li>
+                    <li>Communication logs: Retained for 3 years for support purposes</li>
+                </ul>
+
+                <h3 class="subsection-title">Closed Accounts</h3>
+                <ul>
+                    <li>Personal information: Deleted within 30 days of account closure</li>
+                    <li>Transaction history: Retained for regulatory requirements (7 years)</li>
+                    <li>Fraud prevention data: Kept for 5 years for security purposes</li>
+                </ul>
+
+                <div class="warning-box">
+                    <p><i class="fa fa-clock icon"></i><span class="bold">Legal requirements:</span> Some data must be retained longer due to Nigerian financial regulations, tax laws, and anti-money laundering requirements.</p>
+                </div>
+            </section>
+
+            <section class="section" id="section-7">
+                <div class="section-header">
+                    <div class="section-number">7</div>
+                    <h2 class="section-title">International Transfers</h2>
+                </div>
+                <p>Your information may be transferred to and processed in countries outside Nigeria:</p>
+                
+                <h3 class="subsection-title">Transfer Safeguards</h3>
+                <ul>
+                    <li>Standard contractual clauses for data protection</li>
+                    <li>Adequacy decisions from relevant authorities</li>
+                    <li>Certification schemes and codes of conduct</li>
+                    <li>Regular compliance monitoring and audits</li>
+                </ul>
+
+                <h3 class="subsection-title">Countries We Work With</h3>
+                <ul>
+                    <li>United States (cloud infrastructure providers)</li>
+                    <li>European Union (analytics and support services)</li>
+                    <li>Other countries with adequate protection levels</li>
+                </ul>
+            </section>
+
+            <section class="section" id="section-8">
+                <div class="section-header">
+                    <div class="section-number">8</div>
+                    <h2 class="section-title">Children's Privacy</h2>
+                </div>
+                <p>Disbux is not intended for use by children under 18 years of age:</p>
+                
+                <ul>
+                    <li>We do not knowingly collect information from children under 18</li>
+                    <li>If we discover we have collected such information, we will delete it immediately</li>
+                    <li>Parents can contact us to request deletion of their child's information</li>
+                    <li>We recommend parental supervision for any financial services</li>
+                </ul>
+
+                <div class="info-box">
+                    <p><i class="fa fa-user-shield icon"></i><span class="bold">Age verification:</span> We may request age verification during account registration to ensure compliance with this policy.</p>
+                </div>
+            </section>
+
+            <section class="section" id="section-9">
+                <div class="section-header">
+                    <div class="section-number">9</div>
+                    <h2 class="section-title">Changes to This Policy</h2>
+                </div>
+                <p>We may update this privacy policy from time to time:</p>
+                
+                <ul>
+                    <li>We'll notify you of significant changes via email or app notification</li>
+                    <li>Minor updates will be posted on our website with an updated date</li>
+                    <li>Continued use of our services constitutes acceptance of changes</li>
+                    <li>You can always access the current version at disbux.com/privacy-policy</li>
+                </ul>
+
+                <div class="success-box">
+                    <p><i class="fa fa-bell icon"></i><span class="bold">Stay informed:</span> We recommend reviewing this policy periodically to stay informed about how we protect your information.</p>
+                </div>
+            </section>
+
+            <section class="section" id="section-10">
+                <div class="section-header">
+                    <div class="section-number">10</div>
+                    <h2 class="section-title">Contact Us</h2>
+                </div>
+                <p>If you have questions about this privacy policy or want to exercise your rights, please contact us:</p>
+                
+                <div class="contact-section">
+                    <h3 style="color: var(--text-primary); font-weight: 600; margin-bottom: 1rem;">Get in Touch</h3>
+                    <p>We're here to help with any privacy-related questions or concerns.</p>
+                    
+                    <div class="contact-grid">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fa fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Email Support</h4>
+                                <p>privacy@disbux.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fa fa-phone"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Phone Support</h4>
+                                <p>+234 902 919 8353</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fa fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Mailing Address</h4>
+                                <p>Lagos, Nigeria</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fa fa-clock"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Response Time</h4>
+                                <p>Within 48 hours</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="container">
+            <p>© Disbux <span id="current-year"></span> • All rights reserved • <a href="index.html" style="color: var(--primary-color); text-decoration: none;">Back to Home</a></p>
+        </div>
+    </div>
+
+    <a href="#" class="scroll-to-top" id="scrollToTop">
+        <i class="fa fa-arrow-up"></i>
+    </a>
+
+    <script>
+        // Set current year
+        document.getElementById("current-year").innerText = new Date().getFullYear();
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll to top functionality
+        const scrollToTop = document.getElementById('scrollToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollToTop.classList.add('visible');
+            } else {
+                scrollToTop.classList.remove('visible');
+            }
+        });
+
+        scrollToTop.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+
+</html>

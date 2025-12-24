@@ -52,7 +52,12 @@
                     <img class="logo" src="images/logo.png" />
                 </a>
                 <div class="menu-right">
-                    <a class="menu-link active" href="files/disbux-release.apk" download >Download</a>
+                    <a class="menu-link active" href="#" onclick="handleAppDownload(event)" id="header-download-btn">
+                        <span class="download-text">Download</span>
+                        <span class="loading-spinner" style="display: none;">
+                            <i class="fa fa-spinner fa-spin"></i>
+                        </span>
+                    </a>
                     <div class="menu-hamburger" id="menu-hamburger">
                         <div aria-hidden="true" class="line line-one"></div>
                         <div aria-hidden="true" class="line line-two"></div>
@@ -76,8 +81,13 @@
                 <p>Disbux offers a safe and easy way to send and receive money without needing recipients bank details. It's
                 perfect for seamless banking, gifting, giveaways, online payments, shopping, and more
                 <div class="hero-btns">
-                    <a href="files/disbux-release.apk" download class="btn main">Get the App</a>
-                    <a href="" class="btn">How it works</a>
+                    <a href="#" onclick="handleAppDownload(event)" class="btn main" id="hero-download-btn">
+                        <span class="download-text">Get the App</span>
+                        <span class="loading-spinner" style="display: none;">
+                            <i class="fa fa-spinner fa-spin"></i>
+                        </span>
+                    </a>
+                    <a href="#how-it-works" class="btn">How it works</a>
                 </div>
 
             </div>
@@ -296,7 +306,7 @@
                 <div class="footer-links">
                     <span class="caption">Links</span>
                     <ul>
-                        <li><a href="">Privacy Policy</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
                         <li><a href="">Terms of Services</a></li>
                         <li><a href="#header">Back to top</a></li>
                     </ul>

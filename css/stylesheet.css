@@ -1068,4 +1068,95 @@ footer .footer-attribute {
   align-items: center;
   padding: 16px 0;
   gap: 0.5rem;
-}/*# sourceMappingURL=stylesheet.css.map */
+}/*# sourceMappingURL=stylesheet.css.map *//* App Do
+wnload Notification Styles */
+.app-notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 10000;
+  max-width: 350px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  animation: slideInRight 0.3s ease-out;
+}
+
+.app-notification.info {
+  background-color: #3498db;
+  color: white;
+}
+
+.app-notification.success {
+  background-color: #27ae60;
+  color: white;
+}
+
+.app-notification.error {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.notification-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+}
+
+.notification-message {
+  flex: 1;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.notification-close {
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 12px;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+.notification-close:hover {
+  opacity: 1;
+}
+
+/* Loading spinner styles */
+.loading-spinner {
+  display: inline-block;
+  margin-left: 8px;
+}
+
+.fa-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Mobile responsiveness for notifications */
+@media (max-width: 480px) {
+  .app-notification {
+    right: 10px;
+    left: 10px;
+    max-width: none;
+  }
+}

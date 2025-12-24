@@ -1,4 +1,143 @@
 
+// App detection and download handler
+function handleAppDownload(event) {
+  event.preventDefault();
+  
+  const downloadBtn = event.target.closest('a');
+  const downloadText = downloadBtn.querySelector('.download-text');
+  const loadingSpinner = downloadBtn.querySelector('.loading-spinner');
+  
+  // Show loading state
+  downloadText.style.display = 'none';
+  loadingSpinner.style.display = 'inline-block';
+  
+  // Custom URL scheme for your app (you'll need to configure this in your mobile app)
+  const appScheme = 'disbux://open';
+  const fallbackUrl = 'files/disbux-release.apk';
+  
+  // Create a hidden iframe to attempt opening the app
+  const iframe = document.createElement('iframe');
+  iframe.style.display = 'none';
+  iframe.src = appScheme;
+  document.body.appendChild(iframe);
+  
+  // Set a timeout to detect if app opened
+  let appOpened = false;
+  const startTime = Date.now();
+  
+  // If app doesn't open within 2.5 seconds, download APK
+  const fallbackTimer = setTimeout(() => {
+    if (!appOpened) {
+      // App not installed, trigger download
+      const link = document.createElement('a');
+      link.href = fallbackUrl;
+      link.download = 'disbux-release.apk';
+      link.click();
+      
+      // Show download message
+      showNotification('App not found. Downloading Disbux APK...', 'info');
+    }
+    cleanup();
+  }, 2500);
+  
+  // Listen for page visibility change (indicates app might have opened)
+  const handleVisibilityChange = () => {
+    if (document.hidden) {
+      appOpened = true;
+      clearTimeout(fallbackTimer);
+      showNotification('Opening Disbux app...', 'success');
+      cleanup();
+    }
+  };
+  
+  // Listen for blur event (another indicator app might have opened)
+  const handleBlur = () => {
+    const timeDiff = Date.now() - startTime;
+    if (timeDiff < 1000) { // If blur happens quickly, likely app opened
+      appOpened = true;
+      clearTimeout(fallbackTimer);
+      showNotification('Opening Disbux app...', 'success');
+      cleanup();
+    }
+  };
+  
+  document.addEventListener('visibilitychange', handleVisibilityChange);
+  window.addEventListener('blur', handleBlur);
+  
+  function cleanup() {
+    // Reset button state
+    downloadText.style.display = 'inline';
+    loadingSpinner.style.display = 'none';
+    
+    // Remove event listeners
+    document.removeEventListener('visibilitychange', handleVisibilityChange);
+    window.removeEventListener('blur', handleBlur);
+    
+    // Remove iframe
+    if (iframe.parentNode) {
+      iframe.parentNode.removeChild(iframe);
+    }
+  }
+}
+
+// Enhanced app detection using multiple methods
+function detectAndOpenApp() {
+  const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+  const isAndroid = /android/i.test(userAgent);
+  const isIOS = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
+  
+  if (isAndroid) {
+    // For Android, try intent URL first, then custom scheme
+    const intentUrl = 'intent://open#Intent;scheme=disbux;package=com.hnrycdr.disbux;end';
+    const customScheme = 'disbux://open';
+    
+    // Try intent URL first (more reliable on Android)
+    window.location.href = intentUrl;
+    
+    // Fallback to custom scheme after a short delay
+    setTimeout(() => {
+      window.location.href = customScheme;
+    }, 500);
+    
+  } else if (isIOS) {
+    // For iOS, use custom scheme
+    window.location.href = 'disbux://open';
+  } else {
+    // For desktop/other platforms, just download
+    const link = document.createElement('a');
+    link.href = 'files/disbux-release.apk';
+    link.download = 'disbux-release.apk';
+    link.click();
+  }
+}
+
+// Notification system
+function showNotification(message, type = 'info') {
+  // Remove existing notifications
+  const existingNotification = document.querySelector('.app-notification');
+  if (existingNotification) {
+    existingNotification.remove();
+  }
+  
+  const notification = document.createElement('div');
+  notification.className = `app-notification ${type}`;
+  notification.innerHTML = `
+    <div class="notification-content">
+      <span class="notification-message">${message}</span>
+      <button class="notification-close" onclick="this.parentElement.parentElement.remove()">×</button>
+    </div>
+  `;
+  
+  document.body.appendChild(notification);
+  
+  // Auto remove after 5 seconds
+  setTimeout(() => {
+    if (notification.parentNode) {
+      notification.remove();
+    }
+  }, 5000);
+}
+
 document.addEventListener("DOMContentLoaded", init_App);
 function init_App() { 
 
