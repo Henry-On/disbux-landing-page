@@ -289,6 +289,80 @@ a, a:link, a:active, a:click {
   display: inline-block;
 }
 
+.account-deletion {
+  background-color: white;
+}
+.account-deletion .section__content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.account-deletion .hero {
+  position: relative;
+  overflow: hidden;
+  background-image: url("../images/hero-background.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: relative;
+}
+.account-deletion .hero::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(11, 25, 52, 0.7529411765);
+  background-image: linear-gradient(358deg, #190415, rgba(0, 182, 255, 0.3294117647), rgba(30, 124, 134, 0.6509803922));
+}
+.account-deletion .hero .title {
+  font-size: clamp(1.5rem, 2vw + 1rem, 2rem);
+  color: white;
+  font-family: "display-font";
+  text-align: left;
+  margin-top: 48px;
+  position: relative;
+}
+.account-deletion .process-list {
+  display: flex;
+  flex-direction: column;
+}
+.account-deletion .process-list li {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+}
+.account-deletion .process-list span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-shrink: 0;
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  font-weight: 800;
+  font-size: 12;
+  color: white;
+}
+.account-deletion .wrapper-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+@media (min-width: 992px) {
+  .account-deletion .wrapper-form {
+    flex-direction: row;
+    gap: 32px;
+  }
+}
+
 * {
   box-sizing: border-box;
 }
@@ -894,90 +968,6 @@ body .title {
     flex-direction: row;
   }
 }
-.contact .message-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-@media (min-width: 992px) {
-  .contact .message-form {
-    width: 60%;
-    flex-shrink: 0;
-  }
-}
-.contact .message-form .input-columns {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-@media (min-width: 768px) {
-  .contact .message-form .input-columns {
-    flex-direction: row;
-  }
-}
-.contact .message-form .wrapper-input {
-  width: 100%;
-  background-color: rgba(255, 255, 255, 0.2);
-  background-image: linear-gradient(22deg, rgba(21, 50, 104, 0.3333333333), rgba(48, 7, 7, 0.4117647059));
-  padding: 16px;
-  border-radius: 8px !important;
-  overflow: hidden;
-}
-.contact .message-form textarea.input-field {
-  font-family: inherit;
-}
-.contact .message-form .input-field {
-  display: block;
-  border: none;
-  color: white;
-  background-color: transparent;
-  width: 100%;
-}
-.contact .message-form .input-field::placeholder {
-  color: white;
-}
-.contact .message-form .input-field::-webkit-input-placeholder {
-  color: white;
-}
-.contact .message-form .input-field:-moz-placeholder {
-  color: white;
-  opacity: 1;
-}
-.contact .message-form .input-field::-moz-placeholder {
-  color: white;
-  opacity: 1;
-}
-.contact .message-form .input-field:-ms-input-placeholder {
-  color: white;
-  opacity: 1;
-}
-.contact .message-form #btn-send-message {
-  padding: 16px 32px;
-  border-radius: 8px;
-  font-weight: bold;
-  width: auto;
-  align-self: flex-start;
-  border: none;
-  background-color: var(--primary-color);
-  background-image: linear-gradient(7deg, rgba(144, 13, 140, 0.6705882353), transparent);
-  color: white;
-}
-.contact .message-form #btn-send-message::after {
-  content: "\f1d8";
-  margin-left: 7px;
-}
-.contact .message-form #btn-send-message.processing::after {
-  content: "\f110";
-}
-.contact .message-form .form-response {
-  font-size: small;
-  color: var(--primary-color);
-  display: block;
-  margin-top: 7px;
-}
-.contact .message-form .form-response.success {
-  color: white;
-}
 .contact .social-media-handles {
   display: flex;
   flex-direction: column;
@@ -987,6 +977,90 @@ body .title {
   display: flex;
   flex-direction: row;
   gap: 0.5rem;
+}
+
+.message-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+@media (min-width: 992px) {
+  .message-form {
+    width: 60%;
+    flex-shrink: 0;
+  }
+}
+.message-form .input-columns {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+@media (min-width: 768px) {
+  .message-form .input-columns {
+    flex-direction: row;
+  }
+}
+.message-form .wrapper-input {
+  width: 100%;
+  background-color: rgba(210, 210, 210, 0.2);
+  padding: 16px;
+  border-radius: 8px !important;
+  overflow: hidden;
+}
+.message-form textarea.input-field {
+  font-family: inherit;
+}
+.message-form .input-field {
+  display: block;
+  border: none;
+  color: black;
+  background-color: transparent;
+  width: 100%;
+}
+.message-form .input-field::placeholder {
+  color: #464646;
+}
+.message-form .input-field::-webkit-input-placeholder {
+  color: #464646;
+}
+.message-form .input-field:-moz-placeholder {
+  color: #464646;
+  opacity: 1;
+}
+.message-form .input-field::-moz-placeholder {
+  color: #464646;
+  opacity: 1;
+}
+.message-form .input-field:-ms-input-placeholder {
+  color: #464646;
+  opacity: 1;
+}
+.message-form #btn-send-message {
+  padding: 16px 24px;
+  border-radius: 8px;
+  font-weight: bold;
+  width: auto;
+  align-self: flex-start;
+  border: none;
+  background-color: var(--primary-color);
+  background-image: linear-gradient(7deg, rgba(144, 13, 140, 0.6705882353), transparent);
+  color: white;
+  font-size: small;
+}
+.message-form #btn-send-message::after {
+  content: "\f1d8";
+  margin-left: 7px;
+}
+.message-form #btn-send-message.processing::after {
+  content: "\f110";
+}
+.message-form .form-response {
+  font-size: small;
+  color: orange;
+  display: block;
+}
+.message-form .form-response.success {
+  color: rgb(0, 77, 3);
 }
 
 .social-icon {

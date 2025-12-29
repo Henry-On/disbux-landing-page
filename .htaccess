@@ -1,8 +1,8 @@
 RewriteEngine On 
 
 # Force HTTPS
-RewriteCond %{HTTPS} off 
-RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+#RewriteCond %{HTTPS} off 
+#RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 # Skip rewriting if it's a real file or folder
 RewriteCond %{REQUEST_FILENAME} !-d
@@ -14,3 +14,7 @@ RewriteCond %{REQUEST_FILENAME}.php -f
 RewriteRule ^(.*)$ $1.html [L]
 
 ErrorDocument 404 https://disbux.com
+
+#ENV
+setEnv INTERNAL_PROXY_KEY ca66b4e75d6722c5d73480e27d309f6478465935d07c9a7f1a9b3f04ea87f9a1
+setEnv BACKEND_API_URL http://172.27.2.233:4000/api
