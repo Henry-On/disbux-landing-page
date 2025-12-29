@@ -1,0 +1,82 @@
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge"> <!-- legacy IE compatibility -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Disbux - Confirm Account Deletion</title>
+  <meta name="keywords" content="disbux, disburse, payment, paycode, delete, deletion">
+  <meta name="author" content="Henry Orionu">
+
+  <!-- SEO / Indexing -->
+  <meta name="robots" content="no-index, no-follow">
+  <link rel="canonical" href="https://disbux.com">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Disbux">
+  <meta property="og:title" content="One Code, Pay Many">
+  <meta property="og:url" content="https://disbux.com">
+
+  <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#0a84ff">
+  <link rel="shortcut icon" href="./images/favicon.png">
+
+  <!-- Performance hints -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Referrer policy -->
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <!-- Accessibility helpers -->
+  <meta name="color-scheme" content="light dark">
+  <meta name="format-detection" content="telephone=no,address=no,email=no"> <!-- prevent auto-linking on mobile -->
+
+  <link rel="stylesheet" href="fontawesome/css/fontawesome.min.css">
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/stylesheet.css" integrity="" crossorigin="anonymous">
+  <script defer src="bootstrap/js/bootstrap.min.js"></script>
+  <script defer src="gsap/minified/gsap.min.js"></script>
+  <script defer src="gsap/plugins/scrollTrigger.min.js"></script>
+  <script defer src="js/script.js"></script>
+
+  <style>
+    .content {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding: 32px;
+      background-color: white;
+      border-radius: 16px;
+      max-width: 769px;
+      margin: auto;
+      text-align: center;
+    }
+
+    button {
+      padding: 8px 16px;
+    }
+  </style>
+</head>
+
+<body class="menu-hidden">
+
+  <main id="main" role="main">
+
+    <div class="section deletion-confirmation">
+
+      <div class="section__content">
+        <div class="content" id="pageContent">
+          <h3 class="title">Delete your account</h3>
+          <p>This is the last warning, and the very last reminder that you cannot undo deleting your account. All your informations saved with us will be deleted, this include your personal details and transaction logs.</p>
+          <button  id="confirmDeletion">I understand, delete my account still</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <noscript>
+    <div role="alert">This site works best with JavaScript enabled.</div>
+  </noscript>
+</body>
+
+</html>

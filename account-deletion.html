@@ -1,0 +1,203 @@
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge"> <!-- legacy IE compatibility -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Disbux - Account Deletion</title>
+  <meta name="keywords" content="disbux, disburse, payment, paycode, delete, deletion">
+  <meta name="author" content="Henry Orionu">
+
+  <!-- SEO / Indexing -->
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://disbux.com">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Disbux">
+  <meta property="og:title" content="One Code, Pay Many">
+  <meta property="og:description"
+    content="Disbux Offers a way to make payment and gifting seamless, just one single payment code, linked to many payments">
+  <meta property="og:url" content="https://disbux.com">
+
+  <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#0a84ff">
+  <link rel="shortcut icon" href="./images/favicon.png">
+
+  <!-- Performance hints -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Referrer policy -->
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <!-- Accessibility helpers -->
+  <meta name="color-scheme" content="light dark">
+  <meta name="format-detection" content="telephone=no,address=no,email=no"> <!-- prevent auto-linking on mobile -->
+
+  <link rel="stylesheet" href="fontawesome/css/fontawesome.min.css">
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/stylesheet.css" integrity="" crossorigin="anonymous">
+  <script defer src="bootstrap/js/bootstrap.min.js"></script>
+  <script defer src="gsap/minified/gsap.min.js"></script>
+  <script defer src="gsap/plugins/scrollTrigger.min.js"></script>
+  <script defer src="js/script.js"></script>
+</head>
+
+<body class="menu-hidden">
+  <header class="header section" id="header">
+    <nav class="section__content">
+      <div class="header__shown">
+        <a class="brand-logo" href="/">
+          <img class="logo" src="images/logo.png" />
+        </a>
+        <div class="menu-right" >
+          <a class="menu-link active" href="files/disbux-release.apk" download>Download</a>
+          <div class="menu-hamburger" id="menu-hamburger">
+            <div aria-hidden="true" class="line line-one"></div>
+            <div aria-hidden="true" class="line line-two"></div>
+            <div aria-hidden="true" class="line line-three"></div>
+          </div>
+        </div>
+      </div>
+      <ul class="wrapper-menu">
+        <li><a class="menu-link" href="#how-it-works">How it Works</a></li>
+        <li><a class="menu-link" href="#FAQs">FAQs</a></li>
+        <li><a class="menu-link" href="#contact">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main" role="main">
+
+    <div class="section account-deletion">
+
+      <div class="hero">
+        <div class="section__content">
+          <h2 class="title">Account & Data Deletion Request</h2>
+        </div>
+      </div>
+
+      <div class="section__content">
+        <div>
+          <h3 class="title">Overview</h3>
+          <p>You can request the deletion of your Disbux account and associated personal data at any time.
+            This process is designed to protect your identity and ensure that only the account owner can
+            request deletion. This action is irreversible.
+        </div>
+        <div>
+          <h3 class="text-black fw-bold text-decoration-underline">How the Deletion Process Works</h3>
+          <ul class="process-list">
+            <li>
+              <span>1</span>
+              <p>Submit your registered email address using the form below</p>
+            </li>
+            <li>
+              <span>2</span>
+              <p>We will send a deletion link to your email to verify ownership of the account</p>
+            </li>
+            <li>
+              <span>3</span>
+              <p>click on the link to confirm your deletion request.</p>
+            </li>
+            <li>
+              <span>4</span>
+              <p>Once confirmed, your account and eligible data will be permanently deleted</p>
+            </li>
+            <li>
+              <span>5</span>
+              <p>You will receive a final confirmation when the process is completed</p>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-black fw-bold text-decoration-underline">Data That Will Be Deleted</h3>
+          Once your deletion request is confirmed, the following data will be permanently removed from our
+          systems:
+          <ul>
+            <li>👉 User account profile information</li>
+            <li>👉 Login credentials</li>
+            <li>👉 Wallet and in-app balance records</li>
+            <li>👉 Transactional activity associated with your account</li>
+            <li>👉 Any other personal data linked to your account</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-black fw-bold text-decoration-underline">Data That May Be Retained</h3>
+          For legal, regulatory, and compliance reasons, certain records may be retained for a limited period,
+          including:
+          <ul>
+            <li>👉 Financial transaction records required by law</li>
+            <li>👉 Records necessary for fraud prevention, dispute resolution, or regulatory compliance</li>
+            <li>👉 These retained records are: stored securely, not used for marketing or analytics, deleted
+              automatically once the legal retention period expires</li>
+          </ul>
+        </div>
+        <div style="padding: 24px; background-color: #443a3a78; border-radius: 16px; border: 1px solid #422e2eca;">
+          <strong class="fw-bold text-black">Important Notes</strong>
+          <p>
+            Account deletion cannot be undone. Any remaining wallet balance must be withdrawn before requesting
+            deletion. If you have further questions about account deletion or data privacy, please refer to our <a
+              href="./privacy-policy" class="text-black">Data privacy policy</a>
+        </div>
+        <div class="wrapper-form">
+          <div>
+            <h3 class="text-black fw-bold text-decoration-underline">Request Form</h3>
+            We are sorry to see your leave. Please tell us the email address associated with your account and why you
+            are deleting your account.<br>
+          </div>
+          <form action="" class="message-form fade-in" id="deleteForm" method="POST">
+            <div class="wrapper-input">
+              <input class="input-field" type="email" placeholder="Email address" name="email">
+            </div>
+            <div class="wrapper-input">
+              <textarea rows="3" class="input-field" name="message" id=""
+                placeholder="Why do you want to delete your account?"></textarea>
+            </div>
+            <span class="form-response"></span>
+            <button id="btn-send-message">Send Request</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="section" role="contentinfo">
+    <div class="section__content">
+      <ul class="labeled-socials">
+        <li>
+          <span class="social-icon fab fa-whatsapp"></span>
+          <div>
+            <span class="name">WhatsApp</span><br>
+            +(234) 9029198353
+          </div>
+        </li>
+        <li>
+          <span class="social-icon fa fa-envelope-open"></span>
+          <div>
+            <span class="name">Support Email</span><br>
+            support@disbux.com
+          </div>
+        </li>
+      </ul>
+      <div class="wrapper-columns">
+        <div class="footer-links">
+          <span class="caption">Links</span>
+          <ul>
+            <li><a href="">Privacy Policy</a></li>
+            <li><a href="">Terms of Services</a></li>
+            <li><a href="#header">Back to top</a></li>
+          </ul>
+        </div>
+        <div class="footer-attribute">
+          <span class="text-black">© Disbux <span id="current-year"></span> •</span>
+          All rights reserved
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <noscript>
+    <div role="alert">This site works best with JavaScript enabled.</div>
+  </noscript>
+</body>
+
+</html>

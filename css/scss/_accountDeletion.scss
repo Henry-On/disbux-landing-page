@@ -1,0 +1,78 @@
+.account-deletion {
+    background-color: white;
+
+    .section__content {
+        @include flex-column;
+        gap: 16px;
+
+        @media(min-width: $breakpoint-md) {
+            // max-width: 900px;
+        }
+    }
+
+    .hero {
+        // height: 250px;
+        position: relative;
+        overflow: hidden;
+        background-image: url("../images/hero-background.jpg");
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        position: relative;
+
+        &::before {
+            @include absolute-overlay;
+            background-color: #0b1934c0;
+            background-image: linear-gradient(358deg, #190415, #00b6ff54, #1e7c86a6);
+        }
+
+        .title {
+            font-size: clamp(1.5rem, 2vw + 1rem, 2rem);
+            color: white;
+            font-family: map-get($font-family, "display");
+            text-align: left;
+            margin-top: 48px;
+            position: relative;
+        }
+
+
+
+    }
+
+    .process-list {
+        @include flex-column;
+        // gap:8px;
+
+        li {
+            @include flex-row;
+            gap: 8px;
+            align-items: center;
+        }
+
+        span {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            flex-shrink: 0;
+            height: 32px;
+            width: 32px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            font-weight: 800;
+            font-size: 12;
+            color: white;
+        }
+    }
+
+    .wrapper-form {
+        @include flex-column;
+        gap:16px;
+
+        @media(min-width: $breakpoint-md) {
+            flex-direction: row;
+            gap:32px
+        }
+    }
+}
