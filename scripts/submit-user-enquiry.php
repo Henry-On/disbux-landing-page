@@ -8,21 +8,19 @@ if ($_SERVER["REQUEST_METHOD"] !== "POST") {
 }
 
 $data = json_decode(file_get_contents("php://input"), true);
-$token = trim($data['token'] ?? '');
-
-if (!$token) {
-  echo json_encode([
-    "success" => false,
-    "message" => "Invalid token"
-  ]);
-  exit();
-}
+$firstName = trim($data['firstName'] ?? '');
+$lastName = trim($data['lastName'] ?? '');
+$email = trim($data['email'] ?? '');
+$message = trim($data['message'] ?? '');
 
 $payload = json_encode([
-  "token" => $token
+  "firstName" => $firstName,
+  "lastName" => $lastName,
+  "email" => $email,
+  "message" => $message
 ]);
 
-$ch = curl_init(API_BASE_URL . "/user/profile/confirm-delete");
+$ch = curl_init(API_BASE_URL . "/singles/submit-user-query");
 
 curl_setopt_array($ch, [
   CURLOPT_RETURNTRANSFER => true,
@@ -53,14 +51,18 @@ $responseJson = json_decode($response, true);
 http_response_code($responseCode);
 
 if ($responseCode < 200 || $responseCode >= 300) {
-  echo json_encode([
+  $responsePayload = [
     "success" => false,
-    "message" => $responseJson['message'] ?? 'Request failed'
-  ]);
+    "message" => $responseJson['message']
+  ];
+
+  if(isset($responseJson['error'])) $responsePayload['error'] = $responseJson['error'];
+
+  echo json_encode($responsePayload);
   exit();
 }
 
 echo json_encode([
   "success" => true,
-  "message" => $responseJson['message'] ?? "Account deletion is successful"
+  "message" => $responseJson['message']
 ]);

@@ -2,328 +2,347 @@
 
 <head>
 
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge"> <!-- legacy IE compatibility -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <title>Disbux - One Code, Pay Many</title>
-    <meta name="description"
-        content="Disbux Offers a way to make payment and gifting seamless, just one single payment code, linked to many payments">
-    <meta name="keywords" content="disbux, disburse, payment, paycode">
-    <meta name="author" content="Henry Orionu">
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge"> <!-- legacy IE compatibility -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Disbux - One Code, Pay Many</title>
+  <meta name="description"
+    content="Disbux Offers a way to make payment and gifting seamless, just one single payment code, linked to many payments">
+  <meta name="keywords" content="disbux, disburse, payment, paycode">
+  <meta name="author" content="Henry Orionu">
 
-    <!-- SEO / Indexing -->
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://disbux.com">
+  <!-- SEO / Indexing -->
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://disbux.com">
 
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Disbux">
-    <meta property="og:title" content="One Code, Pay Many">
-    <meta property="og:description"
-        content="Disbux Offers a way to make payment and gifting seamless, just one single payment code, linked to many payments">
-    <meta property="og:url" content="https://disbux.com">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Disbux">
+  <meta property="og:title" content="One Code, Pay Many">
+  <meta property="og:description"
+    content="Disbux Offers a way to make payment and gifting seamless, just one single payment code, linked to many payments">
+  <meta property="og:url" content="https://disbux.com">
 
-    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#0a84ff">
-    <link rel="shortcut icon" href="./images/favicon.png">
+  <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#0a84ff">
+  <link rel="shortcut icon" href="./images/favicon.png">
 
-    <!-- Performance hints -->
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Performance hints -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <!-- Referrer policy -->
-    <meta name="referrer" content="strict-origin-when-cross-origin">
+  <!-- Referrer policy -->
+  <meta name="referrer" content="strict-origin-when-cross-origin">
 
-    <!-- Accessibility helpers -->
-    <meta name="color-scheme" content="light dark">
-    <meta name="format-detection" content="telephone=no,address=no,email=no"> <!-- prevent auto-linking on mobile -->
+  <!-- Accessibility helpers -->
+  <meta name="color-scheme" content="light dark">
+  <meta name="format-detection" content="telephone=no,address=no,email=no"> <!-- prevent auto-linking on mobile -->
 
-    <link rel="stylesheet" href="fontawesome/css/fontawesome.min.css">
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/stylesheet.css" integrity="" crossorigin="anonymous">
-    <script defer src="bootstrap/js/bootstrap.min.js"></script>
-    <script defer src="gsap/minified/gsap.min.js"></script>
-    <script defer src="gsap/plugins/scrollTrigger.min.js"></script>
-    <script defer src="js/script.js"></script>
+  <link rel="stylesheet" href="fontawesome/css/fontawesome.min.css">
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/stylesheet.css" integrity="" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/pure.css" integrity="" crossorigin="anonymous">
+  <script defer src="bootstrap/js/bootstrap.min.js"></script>
+  <script defer src="gsap/minified/gsap.min.js"></script>
+  <script defer src="gsap/plugins/scrollTrigger.min.js"></script>
+  <script defer src="js/script.js"></script>
 </head>
 
 <body class="menu-hidden">
-    <header class="header section" id="header">
-        <nav class="section__content">
-            <div class="header__shown">
-                <a class="brand-logo" href="/">
-                    <img class="logo" src="images/logo.png" />
-                </a>
-                <div class="menu-right">
-                    <a class="menu-link active" href="files/disbux-release.apk" download>Download</a>
-                    <div class="menu-hamburger" id="menu-hamburger">
-                        <div aria-hidden="true" class="line line-one"></div>
-                        <div aria-hidden="true" class="line line-two"></div>
-                        <div aria-hidden="true" class="line line-three"></div>
-                    </div>
-                </div>
-            </div>
-            <ul class="wrapper-menu">
-                <li><a class="menu-link" href="#how-it-works">How it Works</a></li>
-                <li><a class="menu-link" href="#FAQs">FAQs</a></li>
-                <li><a class="menu-link" href="#contact">Contact Us</a></li>
-            </ul>
-        </nav>
-    </header>
-
-
-    <main id="main" role="main">
-        <div class="section hero-section">
-            <div class="section__content">
-                <h2 class="title">Single Code, Multiple Payment</h2>
-                <p>Disbux offers a safe and easy way to send and receive money without needing recipients bank details.
-                    It's
-                    perfect for seamless banking, gifting, giveaways, online payments, shopping, and more
-                <div class="hero-btns">
-                    <a href="#" onclick="handleAppDownload(event)" class="btn main" id="hero-download-btn">
-                        <span class="download-text">Get the App</span>
-                        <span class="loading-spinner" style="display: none;">
-                            <i class="fa fa-spinner fa-spin"></i>
-                        </span>
-                    </a>
-                    <a href="#how-it-works" class="btn">How it works</a>
-                </div>
-
-            </div>
+  <header class="header section" id="header">
+    <nav class="section__content">
+      <div class="header__shown">
+        <a class="brand-logo" href="/">
+          <img class="logo" src="images/logo.png" />
+        </a>
+        <div class="menu-right">
+          <a class="menu-link active" href="files/disbux-release.apk" download>Download</a>
+          <div class="menu-hamburger" id="menu-hamburger">
+            <div aria-hidden="true" class="line line-one"></div>
+            <div aria-hidden="true" class="line line-two"></div>
+            <div aria-hidden="true" class="line line-three"></div>
+          </div>
         </div>
-        <div class="section hiw" id="how-it-works">
-            <div class="section__content">
-                <div class="wrapper-title text-center">
-                    <div class="top-content animate-zoom-in">
-                        <span class="color-secondary sm">How it works</span>
-                        <h2 class="hiw__title title">Simplicity at Peak</h2>
-                        Disbux gives you flexibility to send money to anyone, multiple people at once using a single
-                        payment code, without requesting their bank details ofcsourse. All you have to do:
-                    </div>
-                    <div class="linked-stages">
+      </div>
+      <ul class="wrapper-menu">
+        <li><a class="menu-link" href="#how-it-works">How it Works</a></li>
+        <li><a class="menu-link" href="#FAQs">FAQs</a></li>
+        <li><a class="menu-link" href="#contact">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
 
-                        <div class="stage-name">
-                            <span></span>
-                            <h3>Create Code</h3>
-                        </div>
 
-                        <div class="stage-name">
-                            <span></span>
-                            <h3>Share It</h3>
-                        </div>
-
-                        <div class="stage-name">
-                            <span></span>
-                            <h3>Redeemed</h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="steps-breakdown">
-                    <div class="step zoom-in-stagger">
-                        <span class="numbering">1</span>
-                        <div>
-                            <h2 class="step-title">Generate Code</h2>
-                            Easy and fast with just a button click. Select type/category of payment code and create it.
-                            Easy pizzie
-                        </div>
-                    </div>
-                    <div class="step zoom-in-stagger">
-                        <span class="numbering">2</span>
-                        <div>
-                            <h2 class="step-title">Share The Code</h2>
-                            Click on the code to copy it to your device clip board, or easily share with friends
-                            instantly with instant share button
-                        </div>
-                    </div>
-                    <div class="step zoom-in-stagger">
-                        <span class="numbering">3</span>
-                        <div>
-                            <h2 class="step-title">Beneficiaries Claim</h2>
-                            Similar to creating the code, all recipient have to do: type the code in redeeming section,
-                            see worth of the code and claim it
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="section contest">
-            <div class="section__content">
-                <div class="wrapper-columns">
-                    <div class="container-carousel fade-in">
-                        <img src="images/carou-1.jpg" alt="man-pressing-phone" />
-                    </div>
-                    <div class="content fade-in">
-                        <div>
-                            <span class="color-secondary">Fun to the Party</span>
-                            <h2 class="title">Eases Give-Away Like No Other</h2>
-                        </div>
-                        Don't be stuck with gifting recharge cards, Disbux gives you more flexibility in gifting, from
-                        small to large amount. Host social media give-aways, group contests and so much more: saves
-                        you the stress of collecting users details. You get to define criteria for beneficiaries
-                        receiving your funds. Awesome right? I thought so too 😊
-                    </div>
-                </div>
-                <div class="contest-features">
-                    <div class="feature fade-in">
-                        <span class="icon fa fa-hashtag"></span>
-                        <h3 class="title">Host give-aways & contests</h3>
-                        <p class="position-relative">With Disbux you can create a give-aways on social media platforms,
-                            whatsapp groups and other platforms to create engagement. Saves you time and energy
-                    </div>
-                    <div class="feature fade-in">
-                        <span class="icon fa fa-list"></span>
-                        <h3 class="title">Define the requirements</h3>
-                        When generating codes for contest, you have the preferences to choose from, depending on how you
-                        want to distribute your fund, and who can participate in it
-                    </div>
-                    <div class="feature fade-in">
-                        <span class="icon fa fa-lock-open"></span>
-                        <h3 class="title">Control Winners Approval</h3>
-                        Now a very fun part, users do not have to win your contest twice, not unless you want them to.
-                        You choose whoose winning to approve or not to
-                    </div>
-                </div>
-            </div>
+  <main id="main" role="main">
+    <div class="section hero-section">
+      <div class="section__content">
+        <h2 class="title">Single Code, Multiple Payment</h2>
+        <p>Disbux offers a safe and easy way to send and receive money without needing recipients bank details.
+          It's
+          perfect for seamless banking, gifting, giveaways, online payments, shopping, and more
+        <div class="hero-btns">
+          <a href="#" onclick="handleAppDownload(event)" class="btn main" id="hero-download-btn">
+            <span class="download-text">Get the App</span>
+            <span class="loading-spinner" style="display: none;">
+              <i class="fa fa-spinner fa-spin"></i>
+            </span>
+          </a>
+          <a href="#how-it-works" class="btn">How it works</a>
         </div>
 
-        <div class="section faq" id="FAQs">
-            <div class="section__content">
-                <div class="wrapper-columns">
-                    <div class="column-left">
-                        <h2 class="title">Frequently Asked Questions</h2>
-                        Common questions that might be of interest
-                    </div>
-                    <div class="accordion faq-accordion" id="faqAccordion">
-                        <div class="fade-in">
-                            <span class="question" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
-                                aria-expanded="true" aria-controls="collapseOne">How are We different from other
-                                Fintechs</span>
-                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
-                                data-bs-parent="#faqAccordion">
-                                <div class="accordion-body">
-                                    Unlike most traditional FinTechs, we do not process inter banks transfer. Our
-                                    payment processing is handled by third party
-                                    company, MoniePoint (Through their Monnify payment
-                                    gateway). We do not have any direct interactions with Nigeria Interbank Services
-                                    (NIBS), CBN and other financial institutions that are involved with processing
-                                    of payment within the Nigerian regulatory bodies.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="fade-in">
-                            <span class="question collapsed" type="span" data-bs-toggle="collapse"
-                                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Why
-                                Don't We Process Payment to all banks</span>
-                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-                                data-bs-parent="#faqAccordion">
-                                <div class="accordion-body">
-                                    We are yet to obtain the neccessary documents need to process interbank
-                                    transfers. We operate internally within our App and process payments to other
-                                    banks with Monnify payment gateway
-                                </div>
-                            </div>
-                        </div>
-                        <div class="fade-in">
-                            <span class="question collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Is
-                                there still any core feature(s) yet to implemented
-                                on the App</span>
-                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
-                                data-bs-parent="#faqAccordion">
-                                <div class="accordion-body">
-                                    Yes, so many features are yet to be implemented. We are at early stage and still
-                                    building. We will be pushing out updates regularly as our teams of developers work
-                                    towards implementing more of them
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+      </div>
+    </div>
+    <div class="section hiw" id="how-it-works">
+      <div class="section__content">
+        <div class="wrapper-title text-center">
+          <div class="top-content animate-zoom-in">
+            <span class="color-secondary sm">Simplicity at peak</span>
+            <h2 class="hiw__title title">How it works</h2>
+            Disbux gives you flexibility to send money to anyone, multiple people at once using a single
+            payment code, without requesting their bank details ofcsourse. All you have to do:
+          </div>
+          <div class="linked-stages">
+
+            <div class="stage-name">
+              <span></span>
+              <h3>Create Code</h3>
             </div>
+
+            <div class="stage-name">
+              <span></span>
+              <h3>Share It</h3>
+            </div>
+
+            <div class="stage-name">
+              <span></span>
+              <h3>Redeemed</h3>
+            </div>
+          </div>
+        </div>
+        <div class="steps-breakdown">
+          <div class="step zoom-in-stagger">
+            <span class="numbering">1</span>
+            <div>
+              <h2 class="step-title">Generate Code</h2>
+              Easy and fast with just a button click. Select type/category of payment code and create it.
+              Easy pizzie
+            </div>
+          </div>
+          <div class="step zoom-in-stagger">
+            <span class="numbering">2</span>
+            <div>
+              <h2 class="step-title">Share The Code</h2>
+              Click on the code to copy it to your device clip board, or easily share with friends
+              instantly with instant share button
+            </div>
+          </div>
+          <div class="step zoom-in-stagger">
+            <span class="numbering">3</span>
+            <div>
+              <h2 class="step-title">Beneficiaries Claim</h2>
+              Similar to creating the code, all recipient have to do: type the code in redeeming section,
+              see worth of the code and claim it
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section contest">
+      <div class="section__content">
+        <div class="wrapper-columns">
+          <div class="container-carousel fade-in">
+            <img src="images/carou-1.jpg" alt="man-pressing-phone" />
+          </div>
+          <div class="content fade-in">
+            <div>
+              <span class="color-secondary">Fun to the Party</span>
+              <h2 class="title">Eases Give-Away Like No Other</h2>
+            </div>
+            Don't be stuck with gifting recharge cards, Disbux gives you more flexibility in gifting, from
+            small to large amount. Host social media give-aways, group contests and so much more: saves
+            you the stress of collecting users details. You get to define criteria for beneficiaries
+            receiving your funds. Awesome right? I thought so too 😊
+          </div>
+        </div>
+        <div class="contest-features">
+          <div class="feature fade-in">
+            <span class="icon fa fa-hashtag"></span>
+            <h3 class="title">Host give-aways & contests</h3>
+            <p class="position-relative">With Disbux you can create a give-aways on social media platforms,
+              whatsapp groups and other platforms to create engagement. Saves you time and energy
+          </div>
+          <div class="feature fade-in">
+            <span class="icon fa fa-list"></span>
+            <h3 class="title">Define the requirements</h3>
+            When generating codes for contest, you have the preferences to choose from, depending on how you
+            want to distribute your fund, and who can participate in it
+          </div>
+          <div class="feature fade-in">
+            <span class="icon fa fa-lock-open"></span>
+            <h3 class="title">Control Winners Approval</h3>
+            Now a very fun part, users do not have to win your contest twice, not unless you want them to.
+            You choose whoose winning to approve or not to
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section faq" id="FAQs">
+      <div class="section__content">
+        <div class="wrapper-columns">
+          <div class="column-left">
+            <h2 class="title">Frequently Asked Questions</h2>
+            Common questions that might be of interest
+          </div>
+          <div class="accordion faq-accordion" id="faqAccordion">
+            <div class="fade-in">
+              <span class="question" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                aria-expanded="true" aria-controls="collapseOne">How are We different from other
+                Fintechs</span>
+              <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  Unlike most traditional FinTechs, we do not process inter banks transfer. Our
+                  payment processing is handled by third party
+                  company, MoniePoint (Through their Monnify payment
+                  gateway). We do not have any direct interactions with Nigeria Interbank Services
+                  (NIBS), CBN and other financial institutions that are involved with processing
+                  of payment within the Nigerian regulatory bodies.
+                </div>
+              </div>
+            </div>
+            <div class="fade-in">
+              <span class="question collapsed" type="span" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+                aria-expanded="false" aria-controls="collapseTwo">Why
+                Don't We Process Payment to all banks</span>
+              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  We are yet to obtain the neccessary documents need to process interbank
+                  transfers. We operate internally within our App and process payments to other
+                  banks with Monnify payment gateway
+                </div>
+              </div>
+            </div>
+            <div class="fade-in">
+              <span class="question collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree"
+                aria-expanded="false" aria-controls="collapseThree">Is
+                there still any core feature(s) yet to implemented
+                on the App</span>
+              <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  Yes, so many features are yet to be implemented. We are at early stage and still
+                  building. We will be pushing out updates regularly as our teams of developers work
+                  towards implementing more of them
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section contact" id="contact">
+      <div class="section__content">
+        <div>
+          <span class="color-secondary fs-small">Contact Us</span>
+          <h3 class="title">Send Us Message</h3>
+          Hello! Glad having you here, please use the form to send us a quick mesage
         </div>
 
-        <div class="section contact" id="contact">
-            <div class="section__content">
+        <div class="wrapper-columns">
+          <div class="wrapper-form">
+            <form action="./scripts/submit-user-enquiry.php" class="message-form fade-in" id="user-message"
+              method="post">
+              <div class="input-columns">
                 <div>
-                    <span class="color-secondary fs-small">Contact Us</span>
-                    <h3 class="title">Send Us Message</h3>
-                    Hello! Glad having you here, please use the form to send us a quick mesage
+                  <div class="wrapper-input">
+                    <input class="input-field" type="text" placeholder="First Name" name="firstName" >
+                  </div>
+                  <div class="form-response" data-name="firstName"></div>
                 </div>
-
-                <div class="wrapper-columns">
-                    <div>
-                        <form action="" class="message-form fade-in" id="user-message">
-                            <div class="input-columns">
-                                <div class="wrapper-input">
-                                    <input class="input-field" type="text" value="" placeholder="Name">
-                                </div>
-                                <div class="wrapper-input">
-                                    <input class="input-field" type="email" value="" placeholder="Email">
-                                </div>
-                            </div>
-
-                            <div class="wrapper-input">
-                                <textarea rows="3" class="input-field" name="message" id=""
-                                    placeholder="Your message..."></textarea>
-                            </div>
-
-                            <button id="btn-send-message">Send</button>
-                        </form>
-                    </div>
-                    <div class="social-media-handles">
-                        <p>
-                            <span class="text-black fw-bold">Connect with us</span><br>
-                            You can also connect and chat with us via our social media platforms. We won't keep your
-                            message
-                            waiting...
-                        </p>
-                        <ul class="">
-                            <li><a class="social-icon fab fa-facebook-f" href="#"></a></li>
-                            <li><a class="social-icon fab fa-twitter" href="#"></a></li>
-                            <li><a class="social-icon fab fa-instagram" href="#"></a></li>
-                        </ul>
-                    </div>
+                <div>
+                  <div class="wrapper-input">
+                    <input class="input-field" type="text" placeholder="Last Name" name="lastName" >
+                  </div>
+                  <div class="form-response" data-name="lastName"></div>
                 </div>
-            </div>
-        </div>
-    </main>
+              </div>
 
-    <footer class="section" role="contentinfo">
-        <div class="section__content">
-            <ul class="labeled-socials">
-                <li>
-                    <span class="social-icon fab fa-whatsapp"></span>
-                    <div>
-                        <span class="name">WhatsApp</span><br>
-                        +(234) 9029198353
-                    </div>
-                </li>
-                <li>
-                    <span class="social-icon fa fa-envelope-open"></span>
-                    <div>
-                        <span class="name">Support Email</span><br>
-                        support@disbux.com
-                    </div>
-                </li>
+              <div>
+                <div class="wrapper-input">
+                  <input class="input-field" type="email" placeholder="Email" name="email">
+                </div>
+                <div class="form-response" data-name="email"></div>
+              </div>
+
+              <div>
+                <div class="wrapper-input">
+                  <textarea rows="3" class="input-field" name="message" id="" placeholder="Your message..."></textarea>
+                </div>
+                <div class="form-response" data-name="message"></div>
+              </div>
+
+              <div class="form-response" data-name="general" ></div>
+
+              <button id="submitEnquiry" class="btn-submit-form fa-pseudo">Send</i></button>
+            </form>
+          </div>
+          <div class="social-media-handles">
+            <p>
+              <span class="text-black fw-bold">Connect with us</span><br>
+              You can also connect and chat with us via our social media platforms. We won't keep your
+              message
+              waiting...
+            </p>
+            <ul class="">
+              <li><a class="social-icon fab fa-facebook-f" href="#"></a></li>
+              <li><a class="social-icon fab fa-twitter" href="#"></a></li>
+              <li><a class="social-icon fab fa-instagram" href="#"></a></li>
             </ul>
-            <div class="wrapper-columns">
-                <div class="footer-links">
-                    <span class="caption">Links</span>
-                    <ul>
-                        <li><a href="privacy-policy">Privacy Policy</a></li>
-                        <li><a href="account-deletion">Delete Account</a></li>
-                        <li><a href="#">Terms of Services</a></li>
-                        <li><a href="#header">Back to top</a></li>
-                    </ul>
-                </div>
-                <div class="footer-attribute">
-                    <span class="text-black">© Disbux <span id="current-year"></span> •</span>
-                    All rights reserved
-                </div>
-            </div>
+          </div>
         </div>
-    </footer>
+      </div>
+    </div>
+  </main>
 
-    <noscript>
-        <div role="alert">This site works best with JavaScript enabled.</div>
-    </noscript>
+  <footer class="section" role="contentinfo">
+    <div class="section__content">
+      <ul class="labeled-socials">
+        <li>
+          <span class="social-icon fab fa-whatsapp"></span>
+          <div>
+            <span class="name">WhatsApp</span><br>
+            +(234) 9029198353
+          </div>
+        </li>
+        <li>
+          <span class="social-icon fa fa-envelope-open"></span>
+          <div>
+            <span class="name">Support Email</span><br>
+            support@disbux.com
+          </div>
+        </li>
+      </ul>
+      <div class="wrapper-columns">
+        <div class="footer-links">
+          <span class="caption">Links</span>
+          <ul>
+            <li><a href="privacy-policy">Privacy Policy</a></li>
+            <li><a href="account-deletion">Delete Account</a></li>
+            <li><a href="#">Terms of Services</a></li>
+            <li><a href="#header">Back to top</a></li>
+          </ul>
+        </div>
+        <div class="footer-attribute">
+          <span class="text-black">© Disbux <span id="current-year"></span> •</span>
+          All rights reserved
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <noscript>
+    <div role="alert">This site works best with JavaScript enabled.</div>
+  </noscript>
 </body>
 
 </html>

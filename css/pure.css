@@ -351,20 +351,15 @@ a, a:link, a:active, a:click {
   font-size: 12;
   color: white;
 }
-.account-deletion .container-form {
+.account-deletion .wrapper-form {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 @media (min-width: 992px) {
-  .account-deletion .container-form {
+  .account-deletion .wrapper-form {
     flex-direction: row;
     gap: 32px;
-  }
-  .account-deletion .container-form > div {
-    width: 45%;
-    flex-shrink: 0;
-    flex-grow: 0;
   }
 }
 
@@ -972,11 +967,6 @@ body .title {
   .contact .wrapper-columns {
     flex-direction: row;
   }
-  .contact .wrapper-columns > .wrapper-form {
-    width: 55%;
-    flex-grow: 0;
-    flex-shrink: 0;
-  }
 }
 .contact .social-media-handles {
   display: flex;
@@ -989,56 +979,63 @@ body .title {
   gap: 0.5rem;
 }
 
-form {
+.message-form {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  flex-grow: 1;
 }
-form .input-columns {
+@media (min-width: 992px) {
+  .message-form {
+    width: 60%;
+    flex-shrink: 0;
+  }
+}
+.message-form .input-columns {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 1rem;
 }
-form .input-columns > div {
-  flex-grow: 1;
+@media (min-width: 768px) {
+  .message-form .input-columns {
+    flex-direction: row;
+  }
 }
-form .wrapper-input {
+.message-form .wrapper-input {
   width: 100%;
   background-color: rgba(210, 210, 210, 0.2);
   padding: 16px;
   border-radius: 8px !important;
   overflow: hidden;
 }
-form textarea.input-field {
+.message-form textarea.input-field {
   font-family: inherit;
 }
-form .input-field {
+.message-form .input-field {
   display: block;
   border: none;
   color: black;
   background-color: transparent;
   width: 100%;
 }
-form .input-field::placeholder {
+.message-form .input-field::placeholder {
   color: #464646;
 }
-form .input-field::-webkit-input-placeholder {
+.message-form .input-field::-webkit-input-placeholder {
   color: #464646;
 }
-form .input-field:-moz-placeholder {
-  color: #464646;
-  opacity: 1;
-}
-form .input-field::-moz-placeholder {
+.message-form .input-field:-moz-placeholder {
   color: #464646;
   opacity: 1;
 }
-form .input-field:-ms-input-placeholder {
+.message-form .input-field::-moz-placeholder {
   color: #464646;
   opacity: 1;
 }
-form .btn-submit-form {
+.message-form .input-field:-ms-input-placeholder {
+  color: #464646;
+  opacity: 1;
+}
+.message-form #btn-send-message {
   padding: 16px 24px;
   border-radius: 8px;
   font-weight: bold;
@@ -1050,29 +1047,19 @@ form .btn-submit-form {
   color: white;
   font-size: small;
 }
-form .btn-submit-form::after {
+.message-form #btn-send-message::after {
   content: "\f1d8";
   margin-left: 7px;
 }
-form .btn-submit-form.processing::after {
+.message-form #btn-send-message.processing::after {
   content: "\f110";
-  display: inline-block;
-  animation: spin 1s ease-in-out infinite;
 }
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-form .form-response {
+.message-form .form-response {
   font-size: small;
   color: orange;
   display: block;
 }
-form .form-response.success {
+.message-form .form-response.success {
   color: rgb(0, 77, 3);
 }
 
@@ -1155,4 +1142,95 @@ footer .footer-attribute {
   align-items: center;
   padding: 16px 0;
   gap: 0.5rem;
-}/*# sourceMappingURL=stylesheet.css.map */
+}/*# sourceMappingURL=stylesheet.css.map *//* App Do
+wnload Notification Styles */
+.app-notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 10000;
+  max-width: 350px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  animation: slideInRight 0.3s ease-out;
+}
+
+.app-notification.info {
+  background-color: #3498db;
+  color: white;
+}
+
+.app-notification.success {
+  background-color: #27ae60;
+  color: white;
+}
+
+.app-notification.error {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.notification-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+}
+
+.notification-message {
+  flex: 1;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.notification-close {
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 12px;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+.notification-close:hover {
+  opacity: 1;
+}
+
+/* Loading spinner styles */
+.loading-spinner {
+  display: inline-block;
+  margin-left: 8px;
+}
+
+.fa-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Mobile responsiveness for notifications */
+@media (max-width: 480px) {
+  .app-notification {
+    right: 10px;
+    left: 10px;
+    max-width: none;
+  }
+}

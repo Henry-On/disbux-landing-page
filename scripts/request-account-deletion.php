@@ -1,5 +1,6 @@
 <?php
 header('Content-Type: application/json');
+$config = require __DIR__."/config/app.php";
 
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
   http_response_code(405);
@@ -31,11 +32,7 @@ $payload = json_encode([
   "reason" => $message
 ]);
 
-$backendAPI = $_SERVER['BACKEND_API_URL'];
-$proxy_key = $_SERVER['INTERNAL_PROXY_KEY'];
-
-$apiUrl = $backendAPI . "/user/profile/request-delete";
-$ch = curl_init($apiUrl);
+$ch = curl_init(API_BASE_URL . "/user/profile/request-delete");
 
 curl_setopt_array($ch, [
   CURLOPT_RETURNTRANSFER => true,
@@ -43,7 +40,7 @@ curl_setopt_array($ch, [
   CURLOPT_POSTFIELDS => $payload,
   CURLOPT_HTTPHEADER => [
     "Content-Type: application/json",
-    "INTERNAL-PROXY-KEY: " . $proxy_key
+    "Internal-Proxy-Key: " . $config["internal-proxy-key"]
   ]
 ]);
 
