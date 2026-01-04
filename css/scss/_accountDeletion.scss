@@ -1,13 +1,28 @@
 .account-deletion {
-    background-color: white;
+    .section__content.main {
 
-    .section__content {
         @include flex-column;
-        gap: 16px;
+        gap: 32px;
+        background-color: var(--background-white);
+        border-bottom-left-radius: 1rem;
+        border-bottom-right-radius: 1rem;
 
         @media(min-width: $breakpoint-md) {
-            // max-width: 900px;
+            padding-left:72px;
+            padding-right: 72px;
         }
+
+        &>div:not(:last-child) {
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 32px;
+        }
+    }
+
+    .section-title {
+        display: block;
+        color: var(--text-black);
+        margin-bottom: .5rem;
+        font-weight: 700;
     }
 
     .hero {
@@ -35,46 +50,29 @@
             margin-top: 48px;
             position: relative;
         }
-
-
-
     }
 
-    .process-list {
-        @include flex-column;
-        // gap:8px;
-
+    ul {
         li {
             @include flex-row;
-            gap: 8px;
-            align-items: center;
         }
 
-        span {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
+        .count {
             flex-shrink: 0;
-            height: 32px;
-            width: 32px;
-            border-radius: 50%;
-            background-color: var(--primary-color);
-            font-weight: 800;
-            font-size: 12;
-            color: white;
+            font-weight: 500;
+            margin-right: 5px
         }
     }
 
     .container-form {
         @include flex-column;
-        gap:16px;
+        gap: 16px;
 
         @media(min-width: $breakpoint-md) {
             flex-direction: row;
-            gap:32px;
+            gap: 32px;
 
-            & > div {
+            &>div {
                 width: 45%;
                 flex-shrink: 0;
                 flex-grow: 0;

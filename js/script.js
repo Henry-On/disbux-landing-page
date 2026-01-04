@@ -273,6 +273,9 @@ function init_App() {
     const deleteForm = document.getElementById('deleteForm')
     let responseMessage = deleteForm.getElementsByClassName("form-response")[0]
 
+    const formButton = deleteForm.getElementsByClassName("btn-submit-form")[0]
+    const formButtonText = formButton.innerText
+
     deleteForm.addEventListener('submit', async (e) => {
       e.preventDefault()
       responseMessage.innerText = ""
@@ -288,6 +291,9 @@ function init_App() {
       }
 
       try {
+
+        formButton.innerText = "Processing"
+        formButton.classList.add("processing")
 
         const requestDeletion = await fetch('/scripts/request-account-deletion.php', {
           method: 'POST',
@@ -318,6 +324,9 @@ function init_App() {
       } catch (error) {
         console.error("[couldn't request account deletion]", error?.message || error)
         responseMessage.innerText = "Sorry, an error occured"
+      } finally {
+        formButton.innerText = formButtonText
+        formButton.classList.remove("processing")
       }
     })
   }

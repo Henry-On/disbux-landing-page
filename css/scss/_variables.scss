@@ -1,14 +1,26 @@
 :root {
-    --primary-color: #3C3F9D; 
-    --sec-color:#900d8cab;
-    --text-color:rgba(0,0,0,0.7);
-    --text-light: rgba(255,255,255,0.7);
-    --bg:#e5f4ff;
-    --accent-color:rgb(234, 234, 234);
+    --text-primary: #0f172a;
 
-    --space-sm: .5rem;
-    --space-md: .7rem;
-    --space-lg: 1rem;
+    --background-light: #f8fafc;
+    --background-white: #ffffff;
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+
+    --primary-color: #3C3F9D;
+    --sec-color: #900d8cab;
+    --text-black: #0f172a;
+    --text-body: #475569;
+    --border-color: #e2e8f0;
+
+    --accent-color: rgb(234, 234, 234);
+
+    --accent-blue: #eff6ff;
+    --accent-green: #f0fdf4;
+    --accent-orange: #fffbeb;
+    --border-blue: #bfdbfe;
+    --border-green: #bbf7d0;
+    --border-orange: #fed7aa;
 }
 
 $breakpoint-xs: 480px;
@@ -33,12 +45,13 @@ $font-family: (
     display: flex;
     flex-direction: column;
 }
+
 @mixin flex-row {
     display: flex;
     flex-direction: row;
 }
 
-@mixin absolute-overlay{
+@mixin absolute-overlay {
     content: "";
     display: block;
     position: absolute;
@@ -46,25 +59,29 @@ $font-family: (
     bottom: 0;
     right: 0;
     left: 0;
-    background-color: rgba(0,0,0,0.7);
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 @mixin placeholder-color($color) {
-    
+
     &::placeholder {
         color: $color;
     }
+
     &::-webkit-input-placeholder {
         color: $color;
     }
+
     &:-moz-placeholder {
         color: $color;
         opacity: 1;
     }
+
     &::-moz-placeholder {
         color: $color;
         opacity: 1;
     }
+
     &:-ms-input-placeholder {
         color: $color;
         opacity: 1;
@@ -72,18 +89,6 @@ $font-family: (
 
 }
 
-.bg-accent {
-    background-color: var(--accent-color);
-}
-.text-white {
-    color: white;
-}
-.text-light {
-    color: var(--text-light);
-}
-.text-accent {
-    color: var(--accent-color);
-}
 .font-heading {
     font-family: map-get($font-family, "heading");
     font-size: 1.25rem;
@@ -92,46 +97,22 @@ $font-family: (
 .color-primary {
     color: var(--primary-color);
 }
+
 .color-secondary {
     color: var(--sec-color);
 }
-.text-center {
-    text-align: center;
-}
-.myBtn {
-    display: inline-block;
-    border: 1px solid var(--primary-color);
-    padding: 12px 24px;
-    color:var(--primary-color);
-}
-.myBtn.myBtn-primary {
-    background-color: var(--primary-color);
-    color:black;
-    font-weight: bold;
-}
-.d-block {
-    display: block;
-}
-.d-inline-block {
-    display: inline-block;
-}
+
 .fw-lighter {
     font-weight: lighter;
 }
+
 .fw-bold {
     font-weight: bolder;
 }
-.space-1 {
-    margin-bottom: .75rem;
-}
-.space-2 {
-    margin-bottom: 1rem;
-}
-.space-3 {
-    margin-bottom: 1.75rem;
-}
 
-.fa-pseudo::after, .fa-pseudo::before {
+
+.fa-pseudo::after,
+.fa-pseudo::before {
     font-family: "font awesome 5 free";
     font-weight: bold;
     display: inline-block;
