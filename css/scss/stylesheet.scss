@@ -246,12 +246,15 @@ body {
   }
 
   .title {
-    font-size: 24px;
+    font-size: 32px;
     color: white;
     font-family: map-get($font-family, "display");
 
-    @media(min-width:$breakpoint-md) {
+    @media(min-width:$breakpoint-sm) {
       font-size: 36px;
+    }
+    @media(min-width:$breakpoint-md) {
+      font-size: 40px;
     }
 
     @media(min-width:$breakpoint-lg) {
