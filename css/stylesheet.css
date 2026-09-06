@@ -572,6 +572,19 @@ body .title {
     font-size: 52px;
   }
 }
+.hero-section .subtitle {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: white;
+  margin: 0;
+}
+@media (min-width: 992px) {
+  .hero-section .subtitle {
+    font-size: 20px;
+  }
+}
 .hero-section .section__content {
   display: flex;
   flex-direction: column;

@@ -262,6 +262,19 @@ body {
     }
   }
 
+  .subtitle {
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: white;
+    margin: 0;
+
+    @media(min-width:$breakpoint-md) {
+      font-size: 20px;
+    }
+  }
+
   .section__content {
     @include flex-column;
     gap: 16px;
