@@ -425,7 +425,7 @@ a, a:link, a:active, a:click {
 }
 .why-disbux .phone-scene {
   position: relative;
-  perspective: 1400px;
+  perspective: 2000px;
   width: 280px;
   margin: 1.5rem 0;
 }
@@ -446,7 +446,7 @@ a, a:link, a:active, a:click {
   position: relative;
   z-index: 1;
   transform-style: preserve-3d;
-  transform: rotateY(-14deg) rotateX(6deg);
+  transform: rotateY(-8deg) rotateX(3deg);
   will-change: transform;
 }
 .why-disbux .phone {
@@ -666,7 +666,7 @@ a, a:link, a:active, a:click {
   font-weight: 600;
   color: var(--text-black);
   white-space: nowrap;
-  transform: translateZ(70px);
+  transform: translateZ(40px);
 }
 .why-disbux .float-card .dot {
   flex-shrink: 0;
@@ -789,10 +789,10 @@ a, a:link, a:active, a:click {
 }
 @keyframes why-card-float {
   0%, 100% {
-    transform: translateZ(70px) translateY(0);
+    transform: translateZ(40px) translateY(0);
   }
   50% {
-    transform: translateZ(70px) translateY(-10px);
+    transform: translateZ(40px) translateY(-10px);
   }
 }
 @keyframes why-glow-pulse {

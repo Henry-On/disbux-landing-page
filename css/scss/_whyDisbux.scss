@@ -114,7 +114,7 @@
 
   .phone-scene {
     position: relative;
-    perspective: 1400px;
+    perspective: 2000px;
     width: 280px;
     margin: 1.5rem 0;
 
@@ -138,7 +138,7 @@
     position: relative;
     z-index: 1;
     transform-style: preserve-3d;
-    transform: rotateY(-14deg) rotateX(6deg);
+    transform: rotateY(-8deg) rotateX(3deg);
     will-change: transform;
   }
 
@@ -379,7 +379,7 @@
     font-weight: 600;
     color: var(--text-black);
     white-space: nowrap;
-    transform: translateZ(70px);
+    transform: translateZ(40px);
 
     .dot {
       flex-shrink: 0;
@@ -500,8 +500,8 @@
 }
 
 @keyframes why-card-float {
-  0%, 100% { transform: translateZ(70px) translateY(0); }
-  50% { transform: translateZ(70px) translateY(-10px); }
+  0%, 100% { transform: translateZ(40px) translateY(0); }
+  50% { transform: translateZ(40px) translateY(-10px); }
 }
 
 @keyframes why-glow-pulse {

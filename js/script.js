@@ -522,8 +522,8 @@ function init_App() {
         const px = (e.clientX - rect.left) / rect.width - 0.5;
         const py = (e.clientY - rect.top) / rect.height - 0.5;
         gsap.to(sceneTilt, {
-          rotationY: -14 + px * 16,
-          rotationX: 6 - py * 12,
+          rotationY: -8 + px * 10,
+          rotationX: 3 - py * 8,
           duration: 0.6,
           ease: "power2.out",
         });
@@ -531,8 +531,8 @@ function init_App() {
 
       whyVisual.addEventListener("mouseleave", () => {
         gsap.to(sceneTilt, {
-          rotationY: -14,
-          rotationX: 6,
+          rotationY: -8,
+          rotationX: 3,
           duration: 0.9,
           ease: "power3.out",
         });
