@@ -394,7 +394,8 @@ function init_App() {
   gsap.from(".header", { y: -50, opacity: 0, scale: 0.9, duration: 1 });
 
   const heroTimeline = gsap.timeline();
-  heroTimeline.from(".hero-section .title", { opacity: 0, scale: 0.9, duration: 0.25 })
+  heroTimeline.from(".hero-section .hero-orbit", { opacity: 0, scale: 0.6, duration: 0.4, ease: "back.out(1.6)" })
+    .from(".hero-section .title", { opacity: 0, scale: 0.9, duration: 0.25 })
     .from(".hero-section p", { y: 50, opacity: 0, scale: 0.9, duration: 0.25 })
     .from(".hero-section .hero-btns", { y: 50, opacity: 0, scale: 0.9, duration: 0.25 })
 
@@ -452,6 +453,92 @@ function init_App() {
     }
 
   });
+
+  // Why Disbux section: scroll reveals + 3D phone tilt
+  if (document.querySelector(".why-disbux")) {
+
+    gsap.from(".why-disbux .why-copy > *", {
+      y: 40,
+      opacity: 0,
+      duration: 0.8,
+      stagger: 0.08,
+      ease: "power3",
+      scrollTrigger: {
+        trigger: ".why-disbux .why-copy",
+        start: "top 75%",
+        toggleActions: "play none none reset",
+      }
+    });
+
+    gsap.from(".why-disbux .phone-scene", {
+      y: 80,
+      opacity: 0,
+      scale: 0.9,
+      duration: 1,
+      ease: "power3",
+      scrollTrigger: {
+        trigger: ".why-disbux .why-visual",
+        start: "top 75%",
+        toggleActions: "play none none reset",
+      }
+    });
+
+    gsap.from(".why-disbux .float-card", {
+      opacity: 0,
+      scale: 0.5,
+      duration: 0.6,
+      stagger: 0.15,
+      delay: 0.4,
+      ease: "back.out(1.7)",
+      scrollTrigger: {
+        trigger: ".why-disbux .why-visual",
+        start: "top 70%",
+        toggleActions: "play none none reset",
+      }
+    });
+
+    gsap.from(".why-disbux .can-card", {
+      y: 40,
+      opacity: 0,
+      duration: 0.7,
+      stagger: 0.08,
+      ease: "power3",
+      scrollTrigger: {
+        trigger: ".why-disbux .can-grid",
+        start: "top 85%",
+        toggleActions: "play none none reset",
+      }
+    });
+
+    // mouse-follow tilt on the 3D phone (desktop pointers only)
+    const sceneTilt = document.querySelector(".why-disbux .scene-tilt");
+    const whyVisual = document.querySelector(".why-disbux .why-visual");
+    const finePointer = window.matchMedia("(pointer: fine)").matches;
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (sceneTilt && whyVisual && finePointer && !reducedMotion) {
+      whyVisual.addEventListener("mousemove", (e) => {
+        const rect = whyVisual.getBoundingClientRect();
+        const px = (e.clientX - rect.left) / rect.width - 0.5;
+        const py = (e.clientY - rect.top) / rect.height - 0.5;
+        gsap.to(sceneTilt, {
+          rotationY: -14 + px * 16,
+          rotationX: 6 - py * 12,
+          duration: 0.6,
+          ease: "power2.out",
+        });
+      });
+
+      whyVisual.addEventListener("mouseleave", () => {
+        gsap.to(sceneTilt, {
+          rotationY: -14,
+          rotationX: 6,
+          duration: 0.9,
+          ease: "power3.out",
+        });
+      });
+    }
+  }
 
 }
 

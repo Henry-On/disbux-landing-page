@@ -2,6 +2,7 @@
 @import "./fonts";
 @import "./variables";
 @import "./accountDeletion";
+@import "./whyDisbux";
 
 * {
   box-sizing: border-box;
@@ -272,6 +273,104 @@ body {
 
     @media(min-width:$breakpoint-md) {
       font-size: 20px;
+    }
+  }
+
+  // rotating orbital system: Disbux core with payment nodes circling it
+  .hero-orbit {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 8px;
+    flex-shrink: 0;
+
+    @media(min-width:$breakpoint-md) {
+      width: 180px;
+      height: 180px;
+    }
+
+    .orbit-core {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 58px;
+      height: 58px;
+      transform: translate(-50%, -50%);
+      border-radius: 17px;
+      overflow: hidden;
+      box-shadow:
+        0 0 35px rgba(144, 13, 140, 0.55),
+        0 0 70px rgba(60, 63, 157, 0.5);
+      animation: orbit-core-pulse 3.5s ease-in-out infinite;
+
+      img {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+
+      @media(min-width:$breakpoint-md) {
+        width: 68px;
+        height: 68px;
+      }
+    }
+
+    .orbit-ring {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      border: 1px dashed rgba(255, 255, 255, 0.35);
+
+      .orbit-node {
+        position: absolute;
+        top: -13px;
+        left: 50%;
+        margin-left: -13px;
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        font-size: 12px;
+        font-weight: 800;
+        line-height: 1;
+        background: white;
+        color: var(--primary-color);
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+      }
+
+      &.ring-1 {
+        inset: 16px;
+        animation: orbit-spin 12s linear infinite;
+
+        .orbit-node {
+          animation: orbit-spin-reverse 12s linear infinite;
+        }
+      }
+
+      &.ring-2 {
+        inset: 0;
+        animation: orbit-spin-reverse 17s linear infinite;
+        border-color: rgba(255, 255, 255, 0.25);
+
+        .orbit-node {
+          background: var(--primary-color);
+          color: white;
+          animation: orbit-spin 17s linear infinite;
+        }
+      }
+
+      &.ring-3 {
+        inset: -18px;
+        animation: orbit-spin 24s linear infinite;
+        border-color: rgba(255, 255, 255, 0.18);
+
+        .orbit-node {
+          background: var(--sec-color);
+          color: white;
+          animation: orbit-spin-reverse 24s linear infinite;
+        }
+      }
     }
   }
 
@@ -871,5 +970,28 @@ footer {
   .icon {
     color: #16a34a;
     margin-right: 0.5rem;
+  }
+}
+@keyframes orbit-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orbit-spin-reverse {
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes orbit-core-pulse {
+
+  0%,
+  100% {
+    box-shadow: 0 0 35px rgba(144, 13, 140, 0.55), 0 0 70px rgba(60, 63, 157, 0.5);
+  }
+
+  50% {
+    box-shadow: 0 0 50px rgba(144, 13, 140, 0.75), 0 0 100px rgba(60, 63, 157, 0.7);
   }
 }
