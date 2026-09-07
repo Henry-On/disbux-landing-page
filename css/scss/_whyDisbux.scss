@@ -400,7 +400,7 @@
 
     &.card-sent {
       top: 52px;
-      right: -55px;
+      right: -18px;
       animation: why-card-float 5s ease-in-out infinite;
 
       @media (min-width: $breakpoint-md) {
@@ -410,7 +410,7 @@
 
     &.card-redeemed {
       top: 45%;
-      left: -60px;
+      left: -22px;
       animation: why-card-float 6s ease-in-out 0.8s infinite;
 
       @media (min-width: $breakpoint-md) {
@@ -420,7 +420,7 @@
 
     &.card-fast {
       bottom: 60px;
-      right: -40px;
+      right: -12px;
       animation: why-card-float 5.5s ease-in-out 1.6s infinite;
 
       @media (min-width: $breakpoint-md) {

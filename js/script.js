@@ -537,6 +537,19 @@ function init_App() {
           ease: "power3.out",
         });
       });
+    } else if (sceneTilt && !finePointer && !reducedMotion && window.DeviceOrientationEvent) {
+      // on touch devices, tilt the mockup with the physical phone's gyroscope
+      window.addEventListener("deviceorientation", (e) => {
+        if (e.gamma === null && e.beta === null) return;
+        const gx = Math.max(-30, Math.min(30, e.gamma || 0));
+        const gy = Math.max(-30, Math.min(30, (e.beta || 45) - 45));
+        gsap.to(sceneTilt, {
+          rotationY: -8 + (gx / 30) * 10,
+          rotationX: 3 - (gy / 30) * 8,
+          duration: 0.5,
+          ease: "power2.out",
+        });
+      });
     }
   }
 
