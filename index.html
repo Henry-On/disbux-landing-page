@@ -206,6 +206,7 @@
             payment code, without requesting their bank details of course. All you have to do:
           </div>
           <div class="linked-stages">
+            <span class="stages-progress" aria-hidden="true"></span>
 
             <div class="stage-name">
               <span></span>
@@ -410,41 +411,58 @@
         </div>
       </div>
     </div>
+
+    <div class="section cta-banner">
+      <div class="section__content">
+        <div class="cta-card fade-in">
+          <h2 class="title">Ready to pay hundreds at once?</h2>
+          <p>Create one code, share it, and let everyone claim their share in seconds. No bank details, no
+            one-by-one stress.</p>
+          <a href="#" onclick="handleAppDownload(event)" class="btn-cta">
+            <span class="download-text">Get the App</span>
+            <span class="loading-spinner" style="display: none;">
+              <i class="fa fa-spinner fa-spin"></i>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
   </main>
 
-  <footer class="section" role="contentinfo">
+  <footer class="section site-footer" role="contentinfo">
     <div class="section__content">
-      <ul class="labeled-socials">
-        <li>
-          <span class="social-icon fab fa-whatsapp"></span>
-          <div>
-            <span class="name">WhatsApp</span><br>
-            +234 903 558 0170<br>
-            +234 902 919 8353
-          </div>
-        </li>
-        <li>
-          <span class="social-icon fa fa-envelope-open"></span>
-          <div>
-            <span class="name">Support Email</span><br>
-            contact@disbux.com
-          </div>
-        </li>
-      </ul>
-      <div class="wrapper-columns">
-        <div class="footer-links">
-          <span class="caption">Links</span>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img class="footer-logo" src="images/logo.png" alt="Disbux logo">
+          <p>Send money to hundreds of people at once with a single payment code. No bank details, no stress —
+            perfect for gifting, giveaways and bulk payments.</p>
+        </div>
+        <div class="footer-col">
+          <span class="footer-caption">Links</span>
           <ul>
             <li><a href="privacy-policy">Privacy Policy</a></li>
+            <li><a href="terms-of-service">Terms of Service</a></li>
             <li><a href="account-deletion">Delete Account</a></li>
-            <li><a href="#">Terms of Services</a></li>
             <li><a href="#header">Back to top</a></li>
           </ul>
         </div>
-        <div class="footer-attribute">
-          <span class="text-black">© Disbux <span id="current-year"></span> •</span>
-          All rights reserved
+        <div class="footer-col">
+          <span class="footer-caption">Contact</span>
+          <ul>
+            <li>
+              <span class="contact-label">WhatsApp</span>
+              +234 903 558 0170<br>
+              +234 902 919 8353
+            </li>
+            <li>
+              <span class="contact-label">Email</span>
+              contact@disbux.com
+            </li>
+          </ul>
         </div>
+      </div>
+      <div class="footer-bottom">
+        © Disbux <span id="current-year"></span> • All rights reserved
       </div>
     </div>
   </footer>

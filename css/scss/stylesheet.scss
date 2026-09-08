@@ -250,17 +250,20 @@ body {
   height: 100vh;
   position: relative;
   overflow: hidden;
-  background-image: url("../images/hero-background.jpg");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  position: relative;
+  background-color: #0d0a22;
+  background-image:
+    radial-gradient(ellipse 75% 60% at 18% 15%, rgba(60, 63, 157, 0.55), transparent 62%),
+    radial-gradient(ellipse 65% 55% at 85% 80%, rgba(144, 13, 140, 0.42), transparent 62%),
+    radial-gradient(ellipse 50% 40% at 70% 10%, rgba(90, 93, 196, 0.25), transparent 60%),
+    linear-gradient(180deg, #171334, #0d0a22);
 
+  // subtle grid texture over the gradient
   &::before {
     @include absolute-overlay;
-    background-color: #0b1934c0;
-    background-image: linear-gradient(358deg, #190415, #00b6ff54, #1e7c86a6);
+    background-color: transparent;
+    background-image:
+      repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.025) 0 1px, transparent 1px 90px),
+      repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.025) 0 1px, transparent 1px 90px);
   }
 
   .title {
@@ -535,6 +538,21 @@ body {
 
   .linked-stages {
     @include flex-row;
+    position: relative;
+
+    // gradient line that fills across the stages on scroll
+    .stages-progress {
+      position: absolute;
+      top: 12px;
+      left: 16.66%;
+      right: 16.66%;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--primary-color), var(--sec-color));
+      transform: scaleX(0);
+      transform-origin: left;
+      z-index: 0;
+    }
 
     &>div {
       flex-grow: 1;
@@ -547,7 +565,7 @@ body {
         content: "";
         height: 1px;
         width: 50%;
-        background-color: var(--primary-color);
+        background-color: var(--border-color);
         position: absolute;
         top: 12px;
       }
@@ -1034,5 +1052,219 @@ footer {
 
   50% {
     box-shadow: 0 0 50px rgba(144, 13, 140, 0.75), 0 0 100px rgba(60, 63, 157, 0.7);
+  }
+}
+
+@keyframes scroll-cue-drop {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  70% {
+    transform: translateY(22px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+}
+
+// trust strip under the hero
+.trust-band {
+  background: var(--background-white);
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+
+  .section__content {
+    padding-top: 22px;
+    padding-bottom: 22px;
+
+    @media (min-width: $breakpoint-md) {
+      padding-top: 28px;
+      padding-bottom: 28px;
+    }
+  }
+
+  .trust-items {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px 20px;
+
+    @media (min-width: $breakpoint-md) {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+      color: var(--text-black);
+      font-size: 14px;
+    }
+  }
+
+  .trust-icon {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(135deg, var(--primary-color), var(--sec-color));
+    color: white;
+    font-size: 11px;
+    font-weight: 800;
+    line-height: 1;
+  }
+}
+
+// closing call-to-action banner
+.cta-banner {
+  .section__content {
+    padding-top: 0;
+  }
+
+  .cta-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 28px;
+    padding: 56px 24px;
+    text-align: center;
+    color: white;
+    background-color: var(--primary-color);
+    background-image:
+      radial-gradient(ellipse 70% 90% at 15% 10%, rgba(255, 255, 255, 0.14), transparent 55%),
+      radial-gradient(ellipse 60% 80% at 90% 90%, rgba(255, 255, 255, 0.08), transparent 55%),
+      linear-gradient(120deg, var(--primary-color), #5a5dc4 45%, var(--sec-color));
+    box-shadow: 0 30px 60px -25px rgba(60, 63, 157, 0.55);
+
+    @media (min-width: $breakpoint-md) {
+      padding: 72px 48px;
+    }
+
+    .title {
+      color: white;
+      font-size: 28px;
+      margin-bottom: 10px;
+
+      @media (min-width: $breakpoint-md) {
+        font-size: 40px;
+      }
+    }
+
+    p {
+      opacity: 0.92;
+      max-width: 520px;
+      margin: 0 auto 28px;
+    }
+  }
+
+  .btn-cta {
+    display: inline-block;
+    padding: 14px 40px;
+    border-radius: 999px;
+    background: white;
+    color: var(--primary-color);
+    font-weight: 700;
+    box-shadow: 0 12px 26px -10px rgba(0, 0, 0, 0.35);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 34px -12px rgba(0, 0, 0, 0.4);
+    }
+  }
+}
+
+// premium dark footer
+.site-footer {
+  background-color: #0b1934;
+  color: rgba(255, 255, 255, 0.72);
+
+  .section__content {
+    border-top: none;
+    padding-top: 56px;
+    padding-bottom: 24px;
+
+    @media (min-width: $breakpoint-md) {
+      padding-top: 72px;
+      padding-bottom: 32px;
+    }
+  }
+
+  .footer-grid {
+    display: grid;
+    gap: 2.5rem;
+
+    @media (min-width: $breakpoint-sm) {
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 2rem;
+    }
+  }
+
+  .footer-brand {
+    .footer-logo {
+      height: 30px;
+      margin-bottom: 14px;
+    }
+
+    p {
+      max-width: 340px;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+  }
+
+  .footer-caption {
+    display: block;
+    color: white;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 13px;
+    margin-bottom: 14px;
+  }
+
+  .footer-col ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    a {
+      transition: color 0.3s;
+
+      &:hover {
+        color: white;
+      }
+    }
+  }
+
+  .contact-label {
+    display: block;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.45);
+    margin-bottom: 2px;
+  }
+
+  .footer-bottom {
+    margin-top: 44px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    font-size: 14px;
+    text-align: center;
   }
 }

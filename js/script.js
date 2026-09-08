@@ -462,6 +462,20 @@ function init_App() {
 
   });
 
+  // fill the gradient line across the how-it-works stages on scroll
+  if (document.querySelector(".stages-progress")) {
+    gsap.to(".stages-progress", {
+      scaleX: 1,
+      duration: 1.4,
+      ease: "power2.inOut",
+      scrollTrigger: {
+        trigger: ".linked-stages",
+        start: "top 75%",
+        toggleActions: "play none none reset",
+      }
+    });
+  }
+
   // Why Disbux section: scroll reveals + 3D phone tilt
   if (document.querySelector(".why-disbux")) {
 
