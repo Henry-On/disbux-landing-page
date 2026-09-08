@@ -148,6 +148,14 @@ function init_App() {
     document.getElementById("current-year").innerText = new Date().getFullYear();
   }
 
+  // glassy header background once the page is scrolled
+  const siteHeader = document.querySelector(".header");
+  if (siteHeader) {
+    const updateHeader = () => siteHeader.classList.toggle("scrolled", window.scrollY > 40);
+    window.addEventListener("scroll", updateHeader, { passive: true });
+    updateHeader();
+  }
+
   if (document.getElementById("menu-hamburger")) {
     document.getElementById("menu-hamburger").addEventListener("click", function () {
       this.classList.toggle("animate");
@@ -509,6 +517,36 @@ function init_App() {
         toggleActions: "play none none reset",
       }
     });
+
+    // live count-up of redemptions on the phone mockup
+    const codeMetaCount = document.querySelector(".why-disbux .code-meta span");
+    const codeProgressBar = document.querySelector(".why-disbux .code-progress span");
+    if (codeMetaCount && codeProgressBar) {
+      const redeemCounter = { val: 0 };
+      gsap.to(redeemCounter, {
+        val: 624,
+        duration: 1.8,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: ".why-disbux .phone",
+          start: "top 70%",
+          toggleActions: "play none none reset",
+        },
+        onUpdate: () => {
+          codeMetaCount.textContent = Math.round(redeemCounter.val).toLocaleString() + " of 1,000 redeemed";
+        }
+      });
+      gsap.fromTo(codeProgressBar, { width: "0%" }, {
+        width: "62%",
+        duration: 1.8,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: ".why-disbux .phone",
+          start: "top 70%",
+          toggleActions: "play none none reset",
+        }
+      });
+    }
 
     // mouse-follow tilt on the 3D phone (desktop pointers only)
     const sceneTilt = document.querySelector(".why-disbux .scene-tilt");

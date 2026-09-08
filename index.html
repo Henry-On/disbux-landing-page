@@ -1,4 +1,5 @@
-﻿<html lang="en">
+﻿<!DOCTYPE html>
+<html lang="en">
 
 <head>
 
@@ -21,6 +22,11 @@
   <meta property="og:description"
     content="No more one-by-one transfers. Disbux offers a safe and easy way to send and receive money without needing recipients' bank details — one code, multiple payments. Perfect for banking, gifting, giveaways, online payments, shopping, and more.">
   <meta property="og:url" content="https://disbux.com">
+  <meta property="og:image" content="https://disbux.com/images/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://disbux.com/images/og-image.png">
 
   <link rel="icon" type="image/png" sizes="64x64" href="./images/favicon.png">
   <link rel="shortcut icon" href="./images/favicon.png">
@@ -53,7 +59,7 @@
     <nav class="section__content">
       <div class="header__shown">
         <a class="brand-logo" href="/">
-          <img class="logo" src="images/logo.png" />
+          <img class="logo" src="images/logo.png" alt="Disbux logo" />
         </a>
         <div class="menu-right">
           <a class="menu-link active" href="files/disbux-release.apk" download>Download</a>
@@ -98,12 +104,24 @@
         </div>
 
       </div>
+      <a class="scroll-cue" href="#why-disbux" aria-label="Scroll down to learn more"><span></span></a>
+    </div>
+
+    <div class="trust-band">
+      <div class="section__content">
+        <ul class="trust-items">
+          <li><span class="trust-icon" aria-hidden="true">&#10003;</span>Payments processed by Monnify (Moniepoint)</li>
+          <li><span class="trust-icon" aria-hidden="true">&#10003;</span>No bank details required</li>
+          <li><span class="trust-icon" aria-hidden="true">&#10003;</span>Instant code redemption</li>
+          <li><span class="trust-icon" aria-hidden="true">&#10003;</span>Built for gifting &amp; giveaways</li>
+        </ul>
+      </div>
     </div>
     <div class="section why-disbux" id="why-disbux">
       <div class="section__content">
         <div class="why-columns">
           <div class="why-copy">
-            <span class="why-eyebrow color-secondary">Why Disbux</span>
+            <span class="eyebrow-pill color-secondary">Why Disbux</span>
             <h2 class="why-title title">Pay thousands of people <span class="grad-text">with one code</span></h2>
             <p class="why-intro">Disbux lets you transfer money to multiple people at once. You can send funds to
               hundreds or thousands of people in seconds — as simply as generating a code and sharing it with them.</p>
@@ -182,10 +200,10 @@
       <div class="section__content">
         <div class="wrapper-title text-center">
           <div class="top-content animate-zoom-in">
-            <span class="color-secondary sm">Simplicity at peak</span>
+            <span class="eyebrow-pill color-secondary">Simplicity at peak</span>
             <h2 class="hiw__title title">How it works</h2>
             Disbux gives you flexibility to send money to anyone, multiple people at once using a single
-            payment code, without requesting their bank details ofcsourse. All you have to do:
+            payment code, without requesting their bank details of course. All you have to do:
           </div>
           <div class="linked-stages">
 
@@ -211,7 +229,7 @@
             <div>
               <h2 class="step-title">Generate Code</h2>
               Easy and fast with just a button click. Select type/category of payment code and create it.
-              Easy pizzie
+              Easy peasy
             </div>
           </div>
           <div class="step zoom-in-stagger">
@@ -226,7 +244,7 @@
             <span class="numbering">3</span>
             <div>
               <h2 class="step-title">Beneficiaries Claim</h2>
-              Similar to creating the code, all recipient have to do: type the code in redeeming section,
+              Similar to creating the code, all recipients have to do: type the code in redeeming section,
               see worth of the code and claim it
             </div>
           </div>
@@ -242,7 +260,7 @@
           </div>
           <div class="content fade-in">
             <div>
-              <span class="color-secondary">Fun to the Party</span>
+              <span class="eyebrow-pill color-secondary">Fun to the Party</span>
               <h2 class="title">Eases Give-Away Like No Other</h2>
             </div>
             Don't be stuck with gifting recharge cards, Disbux gives you more flexibility in gifting, from
@@ -268,7 +286,7 @@
             <span class="icon fa fa-lock-open"></span>
             <h3 class="title">Control Winners Approval</h3>
             Now a very fun part, users do not have to win your contest twice, not unless you want them to.
-            You choose whoose winning to approve or not to
+            You choose whose winnings to approve or not to
           </div>
         </div>
       </div>
@@ -305,7 +323,7 @@
               <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
                 data-bs-parent="#faqAccordion">
                 <div class="accordion-body">
-                  We are yet to obtain the neccessary documents need to process interbank
+                  We are yet to obtain the necessary documents needed to process interbank
                   transfers. We operate internally within our App and process payments to other
                   banks with Monnify payment gateway
                 </div>
@@ -333,9 +351,9 @@
     <div class="section contact" id="contact">
       <div class="section__content">
         <div>
-          <span class="color-secondary fs-small">Contact Us</span>
+          <span class="eyebrow-pill color-secondary">Contact Us</span>
           <h3 class="title">Send Us Message</h3>
-          Hello! Glad having you here, please use the form to send us a quick mesage
+          Hello! Glad having you here, please use the form to send us a quick message
         </div>
 
         <div class="wrapper-columns">
@@ -373,7 +391,7 @@
 
               <div class="form-response" data-name="general"></div>
 
-              <button id="submitEnquiry" class="btn-submit-form fa-pseudo">Send</i></button>
+              <button type="submit" id="submitEnquiry" class="btn-submit-form fa-pseudo">Send</button>
             </form>
           </div>
           <div class="social-media-handles">
@@ -384,9 +402,9 @@
               waiting...
             </p>
             <ul class="">
-              <li><a class="social-icon fab fa-facebook-f" href="#"></a></li>
-              <li><a class="social-icon fab fa-twitter" href="#"></a></li>
-              <li><a class="social-icon fab fa-instagram" href="#"></a></li>
+              <li><a class="social-icon fab fa-facebook-f" href="#" aria-label="Disbux on Facebook"></a></li>
+              <li><a class="social-icon fab fa-twitter" href="#" aria-label="Disbux on Twitter"></a></li>
+              <li><a class="social-icon fab fa-instagram" href="#" aria-label="Disbux on Instagram"></a></li>
             </ul>
           </div>
         </div>

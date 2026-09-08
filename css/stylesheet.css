@@ -347,18 +347,6 @@ a, a:link, a:active, a:click {
     gap: 2.5rem;
   }
 }
-.why-disbux .why-eyebrow {
-  display: inline-block;
-  padding: 6px 16px;
-  border-radius: 999px;
-  border: 1px solid var(--border-color);
-  background: var(--background-light);
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  margin-bottom: 1.25rem;
-}
 .why-disbux .why-title {
   font-size: 30px;
   line-height: 1.15;
@@ -832,9 +820,6 @@ body {
 body.menu-hidden .wrapper-menu {
   left: -9999px;
 }
-body.menu-hidden .header {
-  position: absolute;
-}
 body .title {
   font-family: "display-font";
   font-size: 1.35rem;
@@ -865,6 +850,19 @@ body .title {
   }
 }
 
+.eyebrow-pill {
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--border-color);
+  background: var(--background-white);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
 .header {
   position: fixed;
   top: 0;
@@ -872,6 +870,12 @@ body .title {
   right: 0;
   z-index: 5;
   transition: 0.5s;
+}
+.header.scrolled {
+  background: rgba(11, 25, 52, 0.88);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 24px -12px rgba(0, 0, 0, 0.45);
 }
 .header .section__content {
   padding-top: 16px;
@@ -1173,6 +1177,28 @@ body .title {
   .hero-section .section__content {
     max-width: 900px;
   }
+}
+.hero-section .scroll-cue {
+  position: absolute;
+  bottom: 26px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 32px;
+  height: 52px;
+  border: 2px solid rgba(255, 255, 255, 0.55);
+  border-radius: 999px;
+  z-index: 2;
+}
+.hero-section .scroll-cue span {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  margin-left: -3px;
+  border-radius: 50%;
+  background: white;
+  animation: scroll-cue-drop 2s ease-in-out infinite;
 }
 .hero-section .hero-btns {
   display: flex;
