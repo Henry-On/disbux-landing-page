@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 620" role="img" aria-label="Illustration of a Disbux giveaway: one payment code sending money to many people">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#eef0fb"/>
+    </linearGradient>
+    <linearGradient id="brandGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3C3F9D"/>
+      <stop offset="1" stop-color="#900d8c"/>
+    </linearGradient>
+    <linearGradient id="lidGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#5a5dc4"/>
+      <stop offset="1" stop-color="#a83aa4"/>
+    </linearGradient>
+    <linearGradient id="coinGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fbbf24"/>
+      <stop offset="1" stop-color="#d97706"/>
+    </linearGradient>
+    <filter id="softShadow" x="-40%" y="-40%" width="180%" height="180%">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#0f172a" flood-opacity="0.16"/>
+    </filter>
+    <filter id="tinyShadow" x="-40%" y="-40%" width="180%" height="180%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0f172a" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+
+  <!-- background -->
+  <rect width="800" height="620" fill="url(#bgGrad)"/>
+  <circle cx="120" cy="90" r="150" fill="#3C3F9D" opacity="0.06"/>
+  <circle cx="700" cy="520" r="180" fill="#900d8c" opacity="0.05"/>
+  <circle cx="690" cy="110" r="90" fill="#3C3F9D" opacity="0.05"/>
+
+  <!-- dashed connection paths from gift to recipients -->
+  <g fill="none" stroke="#3C3F9D" stroke-width="2.5" stroke-dasharray="2 9" stroke-linecap="round" opacity="0.5">
+    <path d="M330 360 C 240 330, 190 280, 152 216"/>
+    <path d="M470 360 C 560 330, 610 280, 648 216"/>
+    <path d="M330 420 C 230 440, 175 470, 140 500"/>
+    <path d="M470 420 C 570 440, 625 470, 660 500"/>
+  </g>
+
+  <!-- recipient avatars -->
+  <g filter="url(#tinyShadow)">
+    <circle cx="130" cy="185" r="34" fill="#ffffff"/>
+    <circle cx="130" cy="185" r="27" fill="#3C3F9D"/>
+    <text x="130" y="194" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#ffffff">A</text>
+    <circle cx="163" cy="158" r="13" fill="url(#coinGrad)"/>
+    <text x="163" y="163" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="800" fill="#ffffff">&#8358;</text>
+  </g>
+  <g filter="url(#tinyShadow)">
+    <circle cx="670" cy="185" r="34" fill="#ffffff"/>
+    <circle cx="670" cy="185" r="27" fill="#900d8c"/>
+    <text x="670" y="194" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#ffffff">K</text>
+    <circle cx="637" cy="158" r="13" fill="url(#coinGrad)"/>
+    <text x="637" y="163" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="800" fill="#ffffff">&#8358;</text>
+  </g>
+  <g filter="url(#tinyShadow)">
+    <circle cx="118" cy="522" r="34" fill="#ffffff"/>
+    <circle cx="118" cy="522" r="27" fill="#5a5dc4"/>
+    <text x="118" y="531" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#ffffff">T</text>
+    <circle cx="151" cy="495" r="13" fill="url(#coinGrad)"/>
+    <text x="151" y="500" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="800" fill="#ffffff">&#8358;</text>
+  </g>
+  <g filter="url(#tinyShadow)">
+    <circle cx="682" cy="522" r="34" fill="#ffffff"/>
+    <circle cx="682" cy="522" r="27" fill="#c2410c"/>
+    <text x="682" y="531" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#ffffff">+99</text>
+    <circle cx="649" cy="495" r="13" fill="url(#coinGrad)"/>
+    <text x="649" y="500" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="800" fill="#ffffff">&#8358;</text>
+  </g>
+
+  <!-- confetti -->
+  <g>
+    <rect x="255" y="150" width="12" height="12" rx="3" fill="#900d8c" transform="rotate(24 261 156)"/>
+    <rect x="530" y="130" width="12" height="12" rx="3" fill="#3C3F9D" transform="rotate(-18 536 136)"/>
+    <rect x="410" y="95" width="10" height="10" rx="3" fill="#16a34a" transform="rotate(40 415 100)"/>
+    <rect x="330" y="115" width="9" height="9" rx="2" fill="#fbbf24" transform="rotate(-30 334 119)"/>
+    <rect x="480" y="175" width="9" height="9" rx="2" fill="#900d8c" transform="rotate(12 484 179)"/>
+    <circle cx="300" cy="185" r="5" fill="#3C3F9D"/>
+    <circle cx="500" cy="110" r="5" fill="#900d8c"/>
+    <circle cx="370" cy="140" r="4" fill="#16a34a"/>
+    <circle cx="445" cy="150" r="4" fill="#fbbf24"/>
+    <path d="M560 220 l6 12 -12 0 z" fill="#3C3F9D" opacity="0.8"/>
+    <path d="M245 230 l6 12 -12 0 z" fill="#900d8c" opacity="0.8"/>
+  </g>
+
+  <!-- gift box -->
+  <g filter="url(#softShadow)">
+    <rect x="325" y="330" width="150" height="130" rx="14" fill="url(#brandGrad)"/>
+    <rect x="312" y="295" width="176" height="46" rx="12" fill="url(#lidGrad)"/>
+    <rect x="386" y="295" width="28" height="165" fill="#ffffff" opacity="0.85"/>
+    <!-- bow -->
+    <path d="M400 295 C 375 250, 340 255, 345 278 C 349 296, 380 298, 400 295 Z" fill="#ffffff" opacity="0.9"/>
+    <path d="M400 295 C 425 250, 460 255, 455 278 C 451 296, 420 298, 400 295 Z" fill="#ffffff" opacity="0.9"/>
+    <circle cx="400" cy="293" r="10" fill="#ffffff"/>
+  </g>
+
+  <!-- payment code chip -->
+  <g filter="url(#tinyShadow)">
+    <rect x="290" y="205" width="220" height="52" rx="26" fill="#ffffff"/>
+    <circle cx="322" cy="231" r="16" fill="url(#brandGrad)"/>
+    <text x="322" y="237" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="800" fill="#ffffff">&#8358;</text>
+    <text x="352" y="238" font-family="'Courier New', monospace" font-size="21" font-weight="700" letter-spacing="2" fill="#3C3F9D">DBX-7K4PQ2</text>
+  </g>
+
+  <!-- caption pill -->
+  <g filter="url(#tinyShadow)">
+    <rect x="290" y="505" width="220" height="44" rx="22" fill="#ffffff"/>
+    <circle cx="318" cy="527" r="10" fill="#16a34a"/>
+    <path d="M313 527 l4 4 7 -8" stroke="#ffffff" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="336" y="533" font-family="Arial, sans-serif" font-size="17" font-weight="600" fill="#0f172a">1,000 people paid</text>
+  </g>
+</svg>
