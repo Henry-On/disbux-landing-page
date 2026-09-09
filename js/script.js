@@ -35,7 +35,7 @@ function handleAppDownload(event) {
       link.click();
 
       // Show download message
-      showNotification('App not found. Downloading Disbux APK...', 'info');
+      showNotification('Your download has started &#127881; Install Disbux and start paying many at once.', 'success');
     }
     cleanup();
   }, 2500);
@@ -111,7 +111,7 @@ function detectAndOpenApp() {
   }
 }
 
-// Notification system
+// Notification system: branded toast, slides up from the bottom
 function showNotification(message, type = 'info') {
   // Remove existing notifications
   const existingNotification = document.querySelector('.app-notification');
@@ -119,23 +119,28 @@ function showNotification(message, type = 'info') {
     existingNotification.remove();
   }
 
+  const icons = { success: '✓', info: 'ℹ', error: '!' };
   const notification = document.createElement('div');
   notification.className = `app-notification ${type}`;
+  notification.setAttribute('role', 'status');
   notification.innerHTML = `
     <div class="notification-content">
+      <span class="notification-icon" aria-hidden="true">${icons[type] || icons.info}</span>
       <span class="notification-message">${message}</span>
-      <button class="notification-close" onclick="this.parentElement.parentElement.remove()">×</button>
+      <button type="button" class="notification-close" aria-label="Dismiss"
+        onclick="this.closest('.app-notification').remove()">&times;</button>
     </div>
   `;
 
   document.body.appendChild(notification);
 
-  // Auto remove after 5 seconds
+  // Auto remove after 6 seconds with a soft exit
   setTimeout(() => {
     if (notification.parentNode) {
-      notification.remove();
+      notification.classList.add('leaving');
+      setTimeout(() => notification.remove(), 350);
     }
-  }, 5000);
+  }, 6000);
 }
 
 document.addEventListener("DOMContentLoaded", init_App);
