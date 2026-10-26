@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="api-base-url" content="https://disbux-production.up.railway.app/api">
+  <title>Admin Portal | Disbux</title>
+  <link rel="icon" type="image/png" href="/images/favicon.png">
+  <link rel="stylesheet" href="/css/admin.css">
+  <script defer src="/js/admin.js"></script>
+</head>
+<body>
+  <main class="page-shell">
+    <section class="auth-card" id="auth-panel" aria-labelledby="auth-title">
+      <a class="brand" href="/" aria-label="Disbux home">
+        <img src="/images/logo.png" alt="Disbux">
+        <span>Admin Portal</span>
+      </a>
+      <div id="login-view">
+        <p class="eyebrow">STAFF ACCESS</p>
+        <h1 id="auth-title">Sign in securely</h1>
+        <p class="muted">Use your Disbux staff account. We’ll email you a one-time verification code.</p>
+        <form id="login-form" class="form-stack">
+          <label for="admin-email">Email address</label>
+          <input id="admin-email" name="email" type="email" autocomplete="username" required>
+          <label for="admin-password">Password</label>
+          <input id="admin-password" name="password" type="password" autocomplete="current-password" required>
+          <button class="button primary full" type="submit" id="login-submit">Continue</button>
+        </form>
+      </div>
+      <div id="verify-view" hidden>
+        <p class="eyebrow">TWO-STEP VERIFICATION</p>
+        <h1>Check your email</h1>
+        <p class="muted">Enter the six-digit code sent to <strong id="verify-email"></strong>.</p>
+        <form id="verify-form" class="form-stack">
+          <label for="verify-code">Verification code</label>
+          <input id="verify-code" name="code" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="6" pattern="[0-9]{6}" required>
+          <button class="button primary full" type="submit" id="verify-submit">Verify and sign in</button>
+        </form>
+        <button class="text-button" id="resend-code" type="button" disabled>Resend code in 60s</button>
+        <button class="text-button secondary" id="back-to-login" type="button">Back to sign in</button>
+      </div>
+      <p class="notice error" id="auth-error" role="alert" hidden></p>
+      <p class="notice success" id="auth-success" role="status" hidden></p>
+      <p class="security-note">Admin access is restricted to approved staff accounts. Sign-in here does not sign you out of the mobile app.</p>
+    </section>
+
+    <section id="admin-panel" hidden>
+      <header class="topbar">
+        <a class="brand" href="/" aria-label="Disbux home">
+          <img src="/images/logo.png" alt="Disbux">
+          <span>Admin Portal</span>
+        </a>
+        <div class="account">
+          <span id="admin-identity"></span>
+          <button class="button outline" id="logout-button" type="button">Sign out</button>
+        </div>
+      </header>
+
+      <div class="welcome">
+        <div>
+          <p class="eyebrow">DISBUX OPERATIONS</p>
+          <h1>Admin dashboard</h1>
+          <p class="muted">Review identity submissions and share updates with your users.</p>
+        </div>
+      </div>
+
+      <nav class="tabs" aria-label="Admin sections">
+        <button class="tab active" type="button" data-tab="kyc">KYC reviews</button>
+        <button class="tab" type="button" data-tab="announcements">Announcements</button>
+      </nav>
+
+      <section class="panel" id="kyc-section">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">IDENTITY VERIFICATION</p>
+            <h2>KYC submissions</h2>
+          </div>
+          <div class="toolbar">
+            <label class="sr-only" for="kyc-filter">Submission status</label>
+            <select id="kyc-filter">
+              <option value="PENDING_REVIEW">Pending review</option>
+              <option value="APPROVED">Approved</option>
+              <option value="REJECTED">Rejected</option>
+              <option value="ALL">All submissions</option>
+            </select>
+            <button class="button outline" id="refresh-kyc" type="button">Refresh</button>
+          </div>
+        </div>
+        <p class="notice" id="kyc-notice" role="status" hidden></p>
+        <div class="submission-list" id="submission-list" aria-live="polite"></div>
+      </section>
+
+      <section class="panel" id="announcements-section" hidden>
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">KEEP USERS INFORMED</p>
+            <h2>Post an announcement</h2>
+          </div>
+        </div>
+        <p class="muted announcement-help">Announcements appear in the app’s dashboard carousel and notification feed. They are also sent by email and, where enabled, push notification.</p>
+        <form id="announcement-form" class="form-stack announcement-form">
+          <label for="announcement-title">Title</label>
+          <input id="announcement-title" name="title" minlength="3" maxlength="100" required>
+          <label for="announcement-body">Message</label>
+          <textarea id="announcement-body" name="body" minlength="3" maxlength="2000" rows="6" required></textarea>
+          <div class="form-footer">
+            <span class="muted" id="body-count">0 / 2000</span>
+            <button class="button primary" type="submit" id="announcement-submit">Review announcement</button>
+          </div>
+        </form>
+        <p class="notice error" id="announcement-error" role="alert" hidden></p>
+        <p class="notice success" id="announcement-result" role="status" hidden></p>
+      </section>
+    </section>
+  </main>
+
+  <div class="modal-backdrop" id="photo-modal" hidden>
+    <section class="modal-card wide" role="dialog" aria-modal="true" aria-labelledby="photo-title">
+      <div class="modal-heading">
+        <div><p class="eyebrow">PRIVATE IDENTITY DOCUMENTS</p><h2 id="photo-title">KYC photos</h2></div>
+        <button class="icon-button" type="button" data-close-modal="photo-modal" aria-label="Close">×</button>
+      </div>
+      <p class="notice error" id="photo-error" role="alert" hidden></p>
+      <div class="photo-grid" id="photo-grid"></div>
+      <p class="muted small">These private links expire after five minutes. Close this window when you’re done reviewing.</p>
+    </section>
+  </div>
+
+  <div class="modal-backdrop" id="reject-modal" hidden>
+    <section class="modal-card" role="dialog" aria-modal="true" aria-labelledby="reject-title">
+      <div class="modal-heading">
+        <div><p class="eyebrow">KYC REVIEW</p><h2 id="reject-title">Reject submission</h2></div>
+        <button class="icon-button" type="button" data-close-modal="reject-modal" aria-label="Close">×</button>
+      </div>
+      <form id="reject-form" class="form-stack">
+        <label for="rejection-reason">Reason (5–500 characters)</label>
+        <textarea id="rejection-reason" minlength="5" maxlength="500" rows="4" required></textarea>
+        <div class="form-footer">
+          <button class="button outline" type="button" data-close-modal="reject-modal">Cancel</button>
+          <button class="button danger" type="submit" id="reject-submit">Reject KYC</button>
+        </div>
+      </form>
+      <p class="notice error" id="reject-error" role="alert" hidden></p>
+    </section>
+  </div>
+</body>
+</html>
