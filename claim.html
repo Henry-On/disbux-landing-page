@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Redeem your voucher — Disbux</title>
+  <meta name="description" content="You've received a Disbux voucher. Copy your code and redeem it securely in the Disbux app.">
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="canonical" href="https://disbux.com/user/redeem">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Disbux">
+  <meta property="og:title" content="You've received a voucher!">
+  <meta property="og:description" content="Open this link to copy your voucher code and redeem it securely in the Disbux app.">
+  <meta property="og:url" content="https://disbux.com/user/redeem">
+  <meta property="og:image" content="https://disbux.com/images/og-image.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="/images/favicon.png">
+  <link rel="shortcut icon" href="/images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #171323;
+      --muted: #5d5769;
+      --line: #e7e3ee;
+      --surface: #ffffff;
+      --canvas: #f6f5f9;
+      --brand: #3c3f9d;
+      --brand-dark: #2c2f7a;
+      --accent: #900d8c;
+      --green: #17834a;
+      --amber-bg: #fff8ec;
+      --amber-line: #f0d9a8;
+      --amber-ink: #8a5a00;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: var(--canvas);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+    }
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: min(880px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 18px 0;
+    }
+    .brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); font-weight: 800; }
+    .brand img { width: 36px; height: 36px; }
+    .topbar a.home { color: var(--muted); font-size: 14px; font-weight: 600; text-decoration: none; }
+    .topbar a.home:hover { color: var(--brand); }
+    main { flex: 1; display: flex; align-items: flex-start; justify-content: center; padding: 12px 16px 48px; }
+    .card {
+      width: min(560px, 100%);
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 32px 28px;
+      box-shadow: 0 16px 44px rgba(35, 25, 60, .08);
+    }
+    .pill {
+      display: inline-block;
+      margin: 0 0 12px;
+      padding: 5px 12px;
+      border-radius: 999px;
+      background: #eef0ff;
+      color: var(--brand);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    h1 { margin: 0 0 8px; font-size: clamp(24px, 5vw, 30px); letter-spacing: -.02em; }
+    .lede { margin: 0 0 22px; color: var(--muted); line-height: 1.6; }
+    .code-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px 14px 14px 18px;
+      border: 1px dashed #b9b3c7;
+      border-radius: 12px;
+      background: #fbfaff;
+      margin-bottom: 18px;
+    }
+    .code-box code {
+      font-size: clamp(20px, 6vw, 26px);
+      font-weight: 800;
+      letter-spacing: .06em;
+      overflow-wrap: anywhere;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 46px;
+      padding: 12px 20px;
+      border-radius: 10px;
+      border: 1px solid transparent;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background .15s ease;
+    }
+    .btn-primary { background: var(--brand); color: #fff; width: 100%; }
+    .btn-primary:hover { background: var(--brand-dark); }
+    .btn-outline { background: #fff; border-color: var(--line); color: var(--ink); }
+    .btn-outline:hover { border-color: var(--brand); color: var(--brand); }
+    .btn-row { display: flex; gap: 10px; margin-top: 10px; }
+    .btn-row .btn { flex: 1; min-height: 44px; font-size: 14px; }
+    .copy-btn { flex-shrink: 0; min-height: 40px; padding: 8px 14px; font-size: 13px; }
+    .divider { display: flex; align-items: center; gap: 12px; margin: 22px 0; color: var(--muted); font-size: 13px; }
+    .divider::before, .divider::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+    .manual-form { display: flex; gap: 8px; }
+    .manual-form input {
+      flex: 1;
+      min-height: 46px;
+      padding: 10px 14px;
+      border: 1px solid #d9d4e0;
+      border-radius: 10px;
+      font: inherit;
+      text-transform: uppercase;
+    }
+    .manual-form input:focus { outline: none; border-color: var(--brand); box-shadow: 0 0 0 3px rgba(60, 63, 157, .12); }
+    .manual-form .btn { width: auto; }
+    .safety {
+      margin: 22px 0 0;
+      padding: 14px 16px;
+      border: 1px solid var(--amber-line);
+      border-radius: 10px;
+      background: var(--amber-bg);
+      color: var(--amber-ink);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+    .safety strong { display: block; margin-bottom: 2px; }
+    .status { margin: 14px 0 0; font-size: 13px; color: var(--muted); min-height: 20px; }
+    .status.ok { color: var(--green); font-weight: 600; }
+    .status.err { color: #b42318; font-weight: 600; }
+    .apk-note { margin: 14px 0 0; font-size: 14px; color: var(--muted); line-height: 1.6; }
+    .apk-note a { color: var(--brand); font-weight: 700; }
+    footer { text-align: center; padding: 0 16px 28px; color: var(--muted); font-size: 13px; }
+    @media (max-width: 480px) {
+      .card { padding: 24px 18px; }
+      .manual-form { flex-direction: column; }
+      .manual-form .btn { width: 100%; }
+    }
+  </style>
+  <script type="module" src="/js/share.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/"><img src="/images/logo.png" alt="Disbux">Disbux</a>
+    <a class="home" href="/">Back to home</a>
+  </header>
+
+  <main>
+    <section class="card" aria-labelledby="claim-title">
+      <p class="pill">Voucher redemption</p>
+      <h1 id="claim-title">You've received a voucher!</h1>
+      <p class="lede" id="claim-lede">Copy your code below, then open the Disbux app to redeem it.</p>
+
+      <div id="code-panel" hidden>
+        <div class="code-box">
+          <code id="voucher-code" aria-live="polite">—</code>
+          <button class="btn btn-outline copy-btn" id="copy-code" type="button">Copy code</button>
+        </div>
+        <button class="btn btn-primary" id="open-app" type="button">Open in Disbux app</button>
+        <div class="btn-row">
+          <button class="btn btn-outline" id="copy-share" type="button">Copy share message</button>
+          <a class="btn btn-outline" id="store-link" href="https://play.google.com/store/apps/details?id=com.disbux.app">Get the app</a>
+        </div>
+        <p class="apk-note" id="store-note" hidden></p>
+        <p class="apk-note" id="get-app-note">Don't have the app? <a id="store-link-2" href="https://play.google.com/store/apps/details?id=com.disbux.app">Install Disbux from the Play Store</a>, then open the app and enter the code manually. <a href="/files/disbux-release.apk" download>Direct APK download</a> also works on Android.</p>
+      </div>
+
+      <div id="manual-panel" hidden>
+        <p class="lede">Enter the voucher code you received:</p>
+        <form class="manual-form" id="manual-form">
+          <input id="manual-code" name="claimCode" type="text" inputmode="text" autocomplete="off"
+            maxlength="32" placeholder="e.g. K7P4Q2" aria-label="Voucher code" required>
+          <button class="btn btn-primary" type="submit">Continue</button>
+        </form>
+      </div>
+
+      <p class="status" id="claim-status" role="status" aria-live="polite"></p>
+
+      <aside class="safety">
+        <strong>Safety reminder</strong>
+        Disbux will never ask for your PIN, password or OTP to claim a voucher.
+        Only redeem codes inside the official Disbux app.
+      </aside>
+    </section>
+  </main>
+
+  <footer>© Disbux <span id="year"></span> · Need help? Email contact@disbux.com</footer>
+
+  <script type="module">
+    import {
+      buildAndroidIntentClaimUrl,
+      buildAppClaimUrl,
+      buildVoucherShareText,
+      isValidVoucherCode,
+      parseClaimCodeFromUrl,
+      storeUrlForPlatform,
+    } from "/js/share.js";
+
+    const $ = (id) => document.getElementById(id);
+    const status = $("claim-status");
+    const codePanel = $("code-panel");
+    const manualPanel = $("manual-panel");
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const say = (message, kind = "") => {
+      status.textContent = message;
+      status.className = `status ${kind}`.trim();
+    };
+
+    async function copyText(text, successMessage) {
+      try {
+        await navigator.clipboard.writeText(text);
+      } catch {
+        const area = document.createElement("textarea");
+        area.value = text;
+        area.style.position = "fixed";
+        area.style.opacity = "0";
+        document.body.appendChild(area);
+        area.select();
+        document.execCommand("copy");
+        area.remove();
+      }
+      say(successMessage, "ok");
+    }
+
+    function platform() {
+      const ua = navigator.userAgent || "";
+      if (/android/i.test(ua)) return "android";
+      if (/iPad|iPhone|iPod/.test(ua)) return "ios";
+      return "desktop";
+    }
+
+    function openInApp(code) {
+      const os = platform();
+      const storeUrl = storeUrlForPlatform(os);
+      const note = $("store-note");
+      say("Opening the Disbux app…");
+      note.hidden = true;
+      note.textContent = "";
+
+      // Desktop browsers can't open the app: point at the phone flow instead.
+      if (os === "desktop") {
+        say("Open this link on your phone, or copy the code into the Disbux app.");
+        return;
+      }
+
+      let opened = false;
+      const onHidden = () => { opened = true; };
+      document.addEventListener("visibilitychange", onHidden, { once: true });
+      window.addEventListener("pagehide", onHidden, { once: true });
+
+      if (os === "android") {
+        // Intent with Play Store fallback: installed -> app opens;
+        // not installed -> Chrome takes the user to the Play Store.
+        window.location.href = buildAndroidIntentClaimUrl(code);
+      } else {
+        // iOS has no intent fallback, so attempt the scheme then fall through.
+        window.location.href = buildAppClaimUrl(code);
+      }
+
+      window.setTimeout(() => {
+        document.removeEventListener("visibilitychange", onHidden);
+        if (opened) return;
+        if (storeUrl) {
+          say("App isn't installed. Taking you to the store…");
+          window.location.href = storeUrl;
+        } else {
+          note.hidden = false;
+          note.textContent = os === "ios"
+            ? "The Disbux app for iPhone isn't on the App Store yet. Copy the code above and keep it safe until the iOS app launches."
+            : "If the app didn't open, install it from the store link below and enter the code manually.";
+          say("App doesn't seem to be installed.", "err");
+        }
+      }, os === "android" ? 2600 : 1800);
+    }
+
+    // iPhone users: no App Store listing yet, so don't point them at Google Play.
+    if (platform() === "ios" && !storeUrlForPlatform("ios")) {
+      $("store-link").hidden = true;
+      $("get-app-note").textContent =
+        "Disbux for iPhone isn't on the App Store yet — copy your code above and keep it safe until launch.";
+    }
+
+    const initialCode = parseClaimCodeFromUrl(window.location.href);
+
+    if (initialCode && isValidVoucherCode(initialCode)) {
+      const code = initialCode.toUpperCase();
+      $("voucher-code").textContent = code;
+      codePanel.hidden = false;
+      $("copy-code").addEventListener("click", () => copyText(code, "Voucher code copied."));
+      $("copy-share").addEventListener("click", () =>
+        copyText(buildVoucherShareText(code), "Share message copied."));
+      $("open-app").addEventListener("click", () => openInApp(code));
+    } else {
+      if (initialCode) say("That link doesn't include a valid voucher code. Enter it manually below.", "err");
+      manualPanel.hidden = false;
+      $("manual-form").addEventListener("submit", (event) => {
+        event.preventDefault();
+        const code = $("manual-code").value.trim().toUpperCase();
+        if (!isValidVoucherCode(code)) {
+          say("Enter a valid voucher code (letters, numbers and dashes).", "err");
+          return;
+        }
+        window.location.search = `?claimCode=${encodeURIComponent(code)}`;
+      });
+    }
+  </script>
+</body>
+</html>

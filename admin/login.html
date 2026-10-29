@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="api-base-url" content="https://disbux-production.up.railway.app/api">
+  <title>Sign in | Disbux Admin</title>
+  <link rel="icon" type="image/png" href="/images/favicon.png">
+  <link rel="stylesheet" href="/css/admin.css">
+  <link rel="stylesheet" href="/admin/css/portal.css">
+  <script type="module" src="/admin/js/login.js"></script>
+</head>
+<body>
+  <main class="page-shell">
+    <section class="auth-card" aria-labelledby="auth-title">
+      <a class="brand" href="/" aria-label="Disbux home">
+        <img src="/images/logo.png" alt="Disbux">
+        <span>Admin Portal</span>
+      </a>
+      <div id="login-view">
+        <p class="eyebrow">STAFF ACCESS</p>
+        <h1 id="auth-title">Sign in securely</h1>
+        <p class="muted">Use your admin email and account password. We’ll email you a one-time verification code.</p>
+        <form id="login-form" class="form-stack">
+          <label for="admin-email">Email address</label>
+          <input id="admin-email" name="email" type="email" autocomplete="username"
+            placeholder="you@example.com" required>
+          <p class="login-hint">Sign in with your admin email. Access is controlled by the backend’s ADMIN_EMAILS allow-list — only whitelisted addresses can sign in.</p>
+          <label for="admin-password">Password</label>
+          <input id="admin-password" name="password" type="password" autocomplete="current-password" required>
+          <button class="button primary full" type="submit" id="login-submit">Continue</button>
+        </form>
+      </div>
+      <div id="verify-view" hidden>
+        <p class="eyebrow">TWO-STEP VERIFICATION</p>
+        <h1>Check your email</h1>
+        <p class="muted">Enter the six-digit code sent to <strong id="verify-email"></strong>.</p>
+        <form id="verify-form" class="form-stack">
+          <label for="verify-code">Verification code</label>
+          <input id="verify-code" name="code" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="6" pattern="[0-9]{6}" required>
+          <button class="button primary full" type="submit" id="verify-submit">Verify and sign in</button>
+        </form>
+        <button class="text-button" id="resend-code" type="button" disabled>Resend code in 60s</button>
+        <button class="text-button secondary" id="back-to-login" type="button">Back to sign in</button>
+      </div>
+      <p class="notice" id="auth-error" role="alert" hidden></p>
+      <p class="notice" id="auth-success" role="status" hidden></p>
+      <p class="security-note">Admin access is restricted to approved admin accounts. Sign-in here does not sign you out of the mobile app.</p>
+    </section>
+  </main>
+</body>
+</html>

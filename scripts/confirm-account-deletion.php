@@ -26,6 +26,8 @@ $ch = curl_init(API_BASE_URL . "/user/profile/confirm-delete");
 
 curl_setopt_array($ch, [
   CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_CONNECTTIMEOUT => 5,
+  CURLOPT_TIMEOUT => 20,
   CURLOPT_POST => true,
   CURLOPT_POSTFIELDS => $payload,
   CURLOPT_HTTPHEADER => [

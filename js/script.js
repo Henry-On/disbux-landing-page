@@ -12,8 +12,8 @@ function handleAppDownload(event) {
   loadingSpinner.style.display = 'inline-block';
 
   // Custom URL scheme for your app (you'll need to configure this in your mobile app)
-  const appScheme = 'disbux://open';
-  const fallbackUrl = 'files/disbux-release.apk';
+  const appScheme = 'disbux://';
+  const fallbackUrl = 'https://play.google.com/store/apps/details?id=com.disbux.app';
 
   // Create a hidden iframe to attempt opening the app
   const iframe = document.createElement('iframe');
@@ -28,14 +28,14 @@ function handleAppDownload(event) {
   // If app doesn't open within 2.5 seconds, download APK
   const fallbackTimer = setTimeout(() => {
     if (!appOpened) {
-      // App not installed, trigger download
+      // App not installed: take the user to the Play Store listing
       const link = document.createElement('a');
       link.href = fallbackUrl;
-      link.download = 'disbux-release.apk';
+      link.rel = 'noopener';
       link.click();
 
       // Show download message
-      showNotification('Your download has started &#127881; Install Disbux and start paying many at once.', 'success');
+      showNotification('Taking you to the Play Store to install Disbux.', 'success');
     }
     cleanup();
   }, 2500);
@@ -88,8 +88,8 @@ function detectAndOpenApp() {
 
   if (isAndroid) {
     // For Android, try intent URL first, then custom scheme
-    const intentUrl = 'intent://open#Intent;scheme=disbux;package=com.hnrycdr.disbux;end';
-    const customScheme = 'disbux://open';
+    const intentUrl = 'intent:/#Intent;scheme=disbux;package=com.disbux.app;S.browser_fallback_url=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.disbux.app;end';
+    const customScheme = 'disbux://';
 
     // Try intent URL first (more reliable on Android)
     window.location.href = intentUrl;
@@ -101,12 +101,12 @@ function detectAndOpenApp() {
 
   } else if (isIOS) {
     // For iOS, use custom scheme
-    window.location.href = 'disbux://open';
+    window.location.href = 'disbux://';
   } else {
-    // For desktop/other platforms, just download
+    // For desktop/other platforms, open the Play Store listing
     const link = document.createElement('a');
-    link.href = 'files/disbux-release.apk';
-    link.download = 'disbux-release.apk';
+    link.href = 'https://play.google.com/store/apps/details?id=com.disbux.app';
+    link.rel = 'noopener';
     link.click();
   }
 }

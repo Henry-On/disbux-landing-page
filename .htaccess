@@ -1,5 +1,10 @@
 RewriteEngine On 
 
+# Voucher claim links: the app shares /user/redeem?claimCode=XXX as a universal
+# link. When the app isn't installed the browser lands here instead, so serve
+# the claim page (code copying + open-app/store redirect) at the same URL.
+RewriteRule ^user/redeem/?$ claim.html [L,QSA]
+
 # Force HTTPS
 #RewriteCond %{HTTPS} off 
 #RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
@@ -12,6 +17,23 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME}.html -f [OR]
 RewriteCond %{REQUEST_FILENAME}.php -f
 RewriteRule ^(.*)$ $1.html [L]
+
+# Security hardening
+Options -Indexes
+
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# Deny direct access to dotfiles such as /.git/ (/.well-known/ app-link
+# files are unaffected: FilesMatch only matches file names, not paths)
+<IfModule mod_authz_core.c>
+  <FilesMatch "^\.">
+    Require all denied
+  </FilesMatch>
+</IfModule>
 
 ErrorDocument 404 https://disbux.com
 

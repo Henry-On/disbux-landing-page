@@ -1,225 +1,114 @@
 # Disbux App Integration Guide
 
-This guide explains how to configure your mobile app to work with the smart app detection and deep linking system implemented on your landing page.
+How the landing page, the voucher links and the mobile app fit together.
 
-## How It Works
+## 1. App identity (production)
 
-The landing page now includes smart app detection that:
-1. **Detects if the app is installed** using custom URL schemes
-2. **Opens the app directly** if installed (with auto-login capability)
-3. **Downloads the APK** if the app is not installed
-4. **Shows user-friendly notifications** throughout the process
+| Item | Value |
+|------|-------|
+| Android package | `com.disbux.app` |
+| iOS bundle id | `com.disbux.app` |
+| Custom scheme | `disbux://` (beta builds: `disbuxbeta://`) |
+| Play Store | `https://play.google.com/store/apps/details?id=com.disbux.app` |
+| App Store | not published yet — see `APP_STORE_URL` in `js/share.js` |
 
-## Mobile App Configuration Required
+Source of truth in the app repo: `app.config.js`.
 
-### Android App Configuration
+## 2. Voucher claim links (universal links)
 
-#### 1. Add Intent Filters to AndroidManifest.xml
+Every voucher code is shared with this canonical link:
 
-```xml
-<activity
-    android:name=".MainActivity"
-    android:exported="true"
-    android:launchMode="singleTop">
-    
-    <!-- Existing intent filter -->
-    <intent-filter>
-        <action android:name="android.intent.action.MAIN" />
-        <category android:name="android.intent.category.LAUNCHER" />
-    </intent-filter>
-    
-    <!-- Custom URL Scheme -->
-    <intent-filter android:autoVerify="true">
-        <action android:name="android.intent.action.VIEW" />
-        <category android:name="android.intent.category.DEFAULT" />
-        <category android:name="android.intent.category.BROWSABLE" />
-        <data android:scheme="disbux" />
-    </intent-filter>
-    
-    <!-- Deep Links -->
-    <intent-filter android:autoVerify="true">
-        <action android:name="android.intent.action.VIEW" />
-        <category android:name="android.intent.category.DEFAULT" />
-        <category android:name="android.intent.category.BROWSABLE" />
-        <data android:scheme="https"
-              android:host="disbux.com" />
-    </intent-filter>
-</activity>
+```
+https://disbux.com/user/redeem?claimCode={CODE}
 ```
 
-#### 2. Handle Deep Links in Your App
+How it resolves:
 
-```kotlin
-// In your MainActivity or appropriate activity
-override fun onCreate(savedInstanceState: Bundle?) {
-    super.onCreate(savedInstanceState)
-    
-    handleDeepLink(intent)
-}
+1. **App installed (Android)** — the `pathPrefix: /user/redeem` intent filter in
+   `app.config.js` opens the redeem screen directly with `claimCode` prefilled
+   (`app/user/(contest)/redeem.jsx` reads it via `useLocalSearchParams`).
+2. **App installed (iOS)** — same via `applinks:disbux.com`, once the
+   `.well-known/apple-app-site-association` file carries the real Apple Team ID
+   (it currently says `TEAMID`) and the `/user/redeem*` path, which is already
+   listed.
+3. **App not installed** — the browser lands on the landing-page claim UI
+   (served at the same URL by the `.htaccess` `user/redeem → claim.html`
+   rewrite). That page lets the user copy the code, tap **Open in Disbux app**
+   (custom scheme, with Play Store fallback on Android), or install the app.
 
-override fun onNewIntent(intent: Intent?) {
-    super.onNewIntent(intent)
-    intent?.let { handleDeepLink(it) }
-}
+Android App Links verification uses `.well-known/assetlinks.json`
+(`delegate_permission/common.handle_all_urls` for `com.disbux.app`).
+If app links stop working after a release, re-check that the
+`sha256_cert_fingerprints` entry matches the signing key.
 
-private fun handleDeepLink(intent: Intent) {
-    val data = intent.data
-    
-    when {
-        data?.scheme == "disbux" -> {
-            // Handle custom scheme (disbux://open)
-            when (data.host) {
-                "open" -> {
-                    // Auto-login user if they have valid session
-                    autoLoginUser()
-                }
-            }
-        }
-        
-        data?.scheme == "https" && data.host == "disbux.com" -> {
-            // Handle web deep links
-            when (data.path) {
-                "/open", "/login" -> autoLoginUser()
-                "/user/claim" -> navigateToClaimScreen()
-                "/pay" -> navigateToPaymentScreen()
-            }
-        }
-    }
-}
+## 3. Share message template
 
-private fun autoLoginUser() {
-    // Check if user has valid session/token
-    val userToken = getStoredUserToken()
-    
-    if (userToken != null && isTokenValid(userToken)) {
-        // Navigate directly to main app screen
-        navigateToMainScreen()
-    } else {
-        // Navigate to login screen
-        navigateToLoginScreen()
-    }
-}
+The app generates this exact text per voucher (see `js/share.js`
+`buildVoucherShareText`, covered by `tests/share.test.mjs`):
+
+```
+You've received a voucher!
+Voucher code: {CODE}
+Redeem securely at: https://disbux.com/user/redeem?claimCode={CODE}
+Or open the Disbux app and enter the code manually.
+Safety reminder: Disbux will never ask for your PIN, password or OTP to claim a voucher.
 ```
 
-### iOS App Configuration (if you plan to support iOS)
+Replacement for `shareCode` in the app repo (`utils/helperFunctions.js`):
 
-#### 1. Add URL Scheme to Info.plist
-
-```xml
-<key>CFBundleURLTypes</key>
-<array>
-    <dict>
-        <key>CFBundleURLName</key>
-        <string>com.hnrycdr.disbux</string>
-        <key>CFBundleURLSchemes</key>
-        <array>
-            <string>disbux</string>
-        </array>
-    </dict>
-</array>
-
-<key>com.apple.developer.associated-domains</key>
-<array>
-    <string>applinks:disbux.com</string>
-</array>
+```js
+export const shareCode = async (code) => {
+  if (!code) return;
+  try {
+    const claimUrl = `https://disbux.com/user/redeem?claimCode=${encodeURIComponent(code)}`;
+    const message =
+      `You've received a voucher!\n` +
+      `Voucher code: ${code}\n` +
+      `Redeem securely at: ${claimUrl}\n` +
+      `Or open the Disbux app and enter the code manually.\n` +
+      `Safety reminder: Disbux will never ask for your PIN, password or OTP to claim a voucher.`;
+    await Share.share({ message }, { dialogTitle: 'Share your voucher', subject: 'Redeemable Voucher' });
+  } catch (error) {
+    console.error('Error sharing:', error);
+  }
+};
 ```
 
-#### 2. Handle URL Schemes in iOS
+## 4. Opening the app from the website
 
-```swift
-// In AppDelegate or SceneDelegate
-func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-    
-    if url.scheme == "disbux" {
-        switch url.host {
-        case "open":
-            autoLoginUser()
-        default:
-            break
-        }
-    }
-    
-    return true
-}
+- Generic "Get the App" buttons (`js/script.js`) try `disbux://` (app root,
+  which routes through `/auth`), falling back to the Play Store listing.
+- The claim page (`claim.html`) uses per-platform logic in module JS:
+  - Android: `intent://user/redeem?claimCode=X#Intent;scheme=disbux;package=com.disbux.app;S.browser_fallback_url=<play-store>;end`
+    — opens the app when installed, Play Store otherwise.
+  - iOS: tries `disbux://user/redeem?claimCode=X`, then the App Store URL once
+    `APP_STORE_URL` is set; until then it shows a "coming soon" note.
+  - Desktop: instructs the user to open the link on their phone.
 
-func autoLoginUser() {
-    // Check for valid user session
-    if let userToken = UserDefaults.standard.string(forKey: "userToken"),
-       isTokenValid(userToken) {
-        // Navigate to main screen
-        navigateToMainScreen()
-    } else {
-        // Navigate to login screen
-        navigateToLoginScreen()
-    }
-}
-```
+All URL builders live in `js/share.js` so web and app stay in sync.
 
-## Web Configuration (Already Implemented)
-
-The following files have been configured on your website:
-
-### 1. `.well-known/assetlinks.json` (Android App Links)
-- Already configured with your package name: `com.hnrycdr.disbux`
-- Uses your app's SHA256 fingerprint for verification
-
-### 2. `.well-known/apple-app-site-association` (iOS Universal Links)
-- Configured for future iOS support
-- Handles paths: `/user/claim/*`, `/pay/*`, `/open`, `/login`
-
-### 3. JavaScript Implementation
-- Smart app detection using multiple methods
-- Fallback to APK download
-- User-friendly notifications
-- Loading states for better UX
-
-## Testing the Integration
-
-### Test Scenarios:
-
-1. **App Installed**: Click "Get the App" → Should open your app directly
-2. **App Not Installed**: Click "Get the App" → Should download APK after 2.5 seconds
-3. **Auto-Login**: When app opens from web, should check for valid session and auto-login
-
-### Testing Commands:
+## 5. Testing
 
 ```bash
-# Test Android intent URL
-adb shell am start -W -a android.intent.action.VIEW -d "disbux://open" com.hnrycdr.disbux
+# Share-contract tests (landing page repo)
+npm test
 
-# Test deep link
-adb shell am start -W -a android.intent.action.VIEW -d "https://disbux.com/open" com.hnrycdr.disbux
+# Android: installed app should open the redeem screen with the code filled in
+adb shell am start -W -a android.intent.action.VIEW -d "https://disbux.com/user/redeem?claimCode=TEST01"
+
+# Android: custom scheme path
+adb shell am start -W -a android.intent.action.VIEW -d "disbux://user/redeem?claimCode=TEST01"
+
+# Verify App Links state
+adb shell pm get-app-links com.disbux.app
 ```
 
-## Security Considerations
+Manual matrix: link with app installed → redeem screen prefilled; without the
+app → claim page → copy code works → Play Store fallback works; iOS →
+graceful note until the App Store listing exists.
 
-1. **Token Validation**: Always validate stored tokens before auto-login
-2. **Deep Link Validation**: Validate all incoming deep link parameters
-3. **Session Management**: Implement proper session timeout and refresh mechanisms
-4. **Certificate Pinning**: Consider implementing certificate pinning for API calls
+## 6. Admin portal + backend contract
 
-## Troubleshooting
-
-### Common Issues:
-
-1. **App doesn't open**: Check if custom URL scheme is properly registered
-2. **Deep links don't work**: Verify intent filters and app link verification
-3. **Auto-login fails**: Check token storage and validation logic
-4. **APK download doesn't start**: Verify file path and server configuration
-
-### Debug Steps:
-
-1. Check Android logcat for intent handling
-2. Verify app link verification status: `adb shell pm get-app-links com.hnrycdr.disbux`
-3. Test URL schemes in browser address bar
-4. Use Chrome DevTools to debug web-side JavaScript
-
-## Next Steps
-
-1. **Implement the mobile app changes** described above
-2. **Test thoroughly** on different devices and scenarios
-3. **Consider adding analytics** to track app opens vs downloads
-4. **Implement push notifications** for better user engagement
-5. **Add iOS support** when ready to expand to iOS platform
-
-The web implementation is now complete and ready to work with your mobile app once you implement the corresponding mobile-side configuration.
+The admin portal (`/admin/`) and every backend endpoint it needs are documented
+in `ADMIN_API_CONTRACT.md`, including the `ADMIN_EMAILS` allow-list and the
+announcement-management endpoints the backend still has to implement.

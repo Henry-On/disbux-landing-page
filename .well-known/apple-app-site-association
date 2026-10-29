@@ -3,8 +3,8 @@
     "apps": [],
     "details": [
       {
-        "appID": "TEAMID.com.hnrycdr.disbux",
-        "paths": [ "/user/claim/*", "/pay/*", "/open", "/login" ]
+        "appID": "TEAMID.com.disbux.app",
+        "paths": [ "/user/redeem*", "/claim*", "/pay/*", "/open", "/login" ]
       }
     ]
   }

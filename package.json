@@ -1,10 +1,11 @@
 {
   "name": "disbux-landing-page",
   "version": "1.0.0",
-  "description": "",
+  "description": "Disbux marketing site, voucher claim page and admin portal.",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node --test tests/share.test.mjs"
   },
   "repository": {
     "type": "git",

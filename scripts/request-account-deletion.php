@@ -7,6 +7,16 @@ if ($_SERVER["REQUEST_METHOD"] !== "POST") {
   exit;
 }
 
+require_once __DIR__ . "/config/rate_limit.php";
+if (!check_rate_limit("deletion_request", 5, 60)) {
+  http_response_code(429);
+  echo json_encode([
+    "success" => false,
+    "message" => "Too many requests. Please wait a minute and try again."
+  ]);
+  exit;
+}
+
 $data = json_decode(file_get_contents("php://input"), true);
 $email = trim($data['email'] ?? '');
 $message = trim($data['message'] ?? '');
@@ -36,6 +46,8 @@ $ch = curl_init(API_BASE_URL . "/user/profile/request-delete");
 
 curl_setopt_array($ch, [
   CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_CONNECTTIMEOUT => 5,
+  CURLOPT_TIMEOUT => 20,
   CURLOPT_POST => true,
   CURLOPT_POSTFIELDS => $payload,
   CURLOPT_HTTPHEADER => [

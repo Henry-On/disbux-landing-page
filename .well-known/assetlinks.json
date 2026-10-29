@@ -3,7 +3,7 @@
     "relation": ["delegate_permission/common.handle_all_urls"],
     "target": {
       "namespace": "android_app",
-      "package_name": "com.hnrycdr.disbux",
+      "package_name": "com.disbux.app",
       "sha256_cert_fingerprints": [
         "2F:3F:3C:BE:D7:CB:88:1F:2D:61:C4:57:12:DC:DB:07:7F:86:51:7F:E3:8D:C7:75:32:93:4B:9B:7C:17:32:FE"
       ]

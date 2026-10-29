@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="api-base-url" content="https://disbux-production.up.railway.app/api">
+  <title>Announcements | Disbux Admin</title>
+  <link rel="icon" type="image/png" href="/images/favicon.png">
+  <link rel="stylesheet" href="/css/admin.css">
+  <link rel="stylesheet" href="/admin/css/portal.css">
+  <script type="module" src="/admin/js/announcements.js"></script>
+</head>
+<body>
+  <div class="portal">
+    <header class="portal-topbar">
+      <a class="brand" href="/admin/"><img src="/images/logo.png" alt="Disbux"><span>Admin</span></a>
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="portal-nav">Menu</button>
+    </header>
+
+    <aside class="sidebar" id="portal-nav" aria-label="Admin navigation">
+      <a class="brand" href="/admin/"><img src="/images/logo.png" alt="Disbux"><span>Admin Portal</span></a>
+      <span class="nav-label">Manage</span>
+      <a class="nav-link" href="/admin/">Dashboard</a>
+      <a class="nav-link" href="/admin/kyc.html">KYC reviews</a>
+      <a class="nav-link" href="/admin/announcements.html" aria-current="page">Announcements</a>
+      <span class="nav-label">Site</span>
+      <a class="nav-link" href="/">View website</a>
+      <div class="sidebar-footer">
+        <span class="account-email" id="admin-identity"></span>
+        <button class="button outline" id="logout-button" type="button">Sign out</button>
+      </div>
+    </aside>
+
+    <main class="portal-main">
+      <div class="portal-content">
+        <div class="welcome">
+          <div>
+            <p class="eyebrow">CAROUSEL & BROADCASTS</p>
+            <h1>Announcements</h1>
+            <p class="muted">Post announcements and giveaway promos to the app’s dashboard carousel. Publishing broadcasts to every user (carousel, notification feed, email, push). Edits below only change the carousel text — already-sent emails and notifications stay as they were.</p>
+          </div>
+        </div>
+
+        <section class="panel">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">BROADCAST</p>
+              <h2>Post an announcement</h2>
+            </div>
+          </div>
+          <form id="announcement-form" class="form-stack announcement-form">
+            <label for="announcement-title">Title (3–100 characters)</label>
+            <input id="announcement-title" name="title" minlength="3" maxlength="100" required>
+            <label for="announcement-body">Message (3–2000 characters)</label>
+            <textarea id="announcement-body" name="body" minlength="3" maxlength="2000" rows="6" required></textarea>
+            <div class="form-footer">
+              <span class="muted" id="body-count">0 / 2000</span>
+              <button class="button primary" type="submit" id="announcement-submit">Publish announcement</button>
+            </div>
+          </form>
+          <p class="notice" id="announcement-error" role="alert" hidden></p>
+          <p class="notice" id="announcement-result" role="status" hidden></p>
+        </section>
+
+        <section class="panel" style="margin-top: 18px;">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">MANAGE</p>
+              <h2>Carousel announcements</h2>
+            </div>
+            <button class="button outline" id="refresh-history" type="button">Refresh</button>
+          </div>
+          <p class="muted announcement-help">Edit the text, hide a slide from the carousel, or delete it. Changes apply to the carousel immediately on the next app refresh.</p>
+          <div class="history-list" id="announcement-history" aria-live="polite"></div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <div class="modal-backdrop" id="edit-modal" hidden>
+    <section class="modal-card" role="dialog" aria-modal="true" aria-labelledby="edit-heading">
+      <div class="modal-heading">
+        <div><p class="eyebrow">CAROUSEL</p><h2 id="edit-heading">Edit announcement</h2></div>
+        <button class="icon-button" type="button" data-close-modal="edit-modal" aria-label="Close">×</button>
+      </div>
+      <form id="edit-form" class="form-stack">
+        <label for="edit-title">Title (3–100 characters)</label>
+        <input id="edit-title" minlength="3" maxlength="100" required>
+        <label for="edit-body">Message (3–2000 characters)</label>
+        <textarea id="edit-body" minlength="3" maxlength="2000" rows="6" required></textarea>
+        <div class="form-footer">
+          <button class="button outline" type="button" data-close-modal="edit-modal">Cancel</button>
+          <button class="button primary" type="submit" id="edit-submit">Save changes</button>
+        </div>
+      </form>
+      <p class="notice" id="edit-error" role="alert" hidden></p>
+      <p class="muted small">Saving updates the carousel only. It does not resend email or push notifications.</p>
+    </section>
+  </div>
+</body>
+</html>

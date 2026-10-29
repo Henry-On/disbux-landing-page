@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="api-base-url" content="https://disbux-production.up.railway.app/api">
+  <title>Dashboard | Disbux Admin</title>
+  <link rel="icon" type="image/png" href="/images/favicon.png">
+  <link rel="stylesheet" href="/css/admin.css">
+  <link rel="stylesheet" href="/admin/css/portal.css">
+  <script type="module" src="/admin/js/dashboard.js"></script>
+</head>
+<body>
+  <div class="portal">
+    <header class="portal-topbar">
+      <a class="brand" href="/admin/"><img src="/images/logo.png" alt="Disbux"><span>Admin</span></a>
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="portal-nav">Menu</button>
+    </header>
+
+    <aside class="sidebar" id="portal-nav" aria-label="Admin navigation">
+      <a class="brand" href="/admin/"><img src="/images/logo.png" alt="Disbux"><span>Admin Portal</span></a>
+      <span class="nav-label">Manage</span>
+      <a class="nav-link" href="/admin/" aria-current="page">Dashboard</a>
+      <a class="nav-link" href="/admin/kyc.html">KYC reviews</a>
+      <a class="nav-link" href="/admin/announcements.html">Announcements</a>
+      <span class="nav-label">Site</span>
+      <a class="nav-link" href="/">View website</a>
+      <div class="sidebar-footer">
+        <span class="account-email" id="admin-identity"></span>
+        <button class="button outline" id="logout-button" type="button">Sign out</button>
+      </div>
+    </aside>
+
+    <main class="portal-main">
+      <div class="portal-content">
+        <div class="welcome">
+          <div>
+            <p class="eyebrow">DISBUX OPERATIONS</p>
+            <h1>Dashboard</h1>
+            <p class="muted">Everything that needs your attention, at a glance.</p>
+          </div>
+          <button class="button outline" id="refresh-dashboard" type="button">Refresh</button>
+        </div>
+
+        <p class="notice" id="dash-notice" role="status" hidden></p>
+        <div class="stat-grid" id="stat-grid" aria-live="polite"></div>
+
+        <section class="panel">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">WORKLOAD</p>
+              <h2>Oldest pending KYC</h2>
+            </div>
+            <a class="button outline" href="/admin/kyc.html">Review all</a>
+          </div>
+          <div class="recent-list" id="recent-pending"></div>
+        </section>
+
+        <section class="panel" style="margin-top: 18px;">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">SHORTCUTS</p>
+              <h2>Manage the app</h2>
+            </div>
+          </div>
+          <div class="action-grid">
+            <a class="action-card" href="/admin/kyc.html">
+              <h3>Review KYC</h3>
+              <p>Approve or reject identity submissions. Approvals verify the user and create their funding account.</p>
+            </a>
+            <a class="action-card" href="/admin/announcements.html">
+              <h3>Post announcement</h3>
+              <p>Broadcast to every user: app carousel, notification feed, email and push. Edit or hide carousel slides any time.</p>
+            </a>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
