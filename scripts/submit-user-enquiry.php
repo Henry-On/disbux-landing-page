@@ -30,7 +30,7 @@ $payload = json_encode([
   "message" => $message
 ]);
 
-$ch = curl_init(API_BASE_URL . "/singles/submit-user-query");
+$ch = curl_init(API_BASE_URL . "/misc/submit-user-query");
 
 curl_setopt_array($ch, [
   CURLOPT_RETURNTRANSFER => true,
