@@ -5,7 +5,7 @@
  * overridden per page with <meta name="api-base-url" content="...">.
  */
 
-export const DEFAULT_API_BASE = "https://disbux-production.up.railway.app/api";
+export const DEFAULT_API_BASE = "https://disbux-dev.up.railway.app/api";
 
 export const DEVICE_NAME = "Disbux Admin Portal";
 
